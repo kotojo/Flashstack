@@ -1,0 +1,23 @@
+{
+  "name": "flash_card_app",
+  "version": "1.0.0",
+  "description": "project 3 flash card app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kotojo/flash_card_app.git"
+  },
+  "keywords": [
+    "project",
+    "flashcard"
+  ],
+  "author": "Bruce Kellerman, Christopher Kemeza, Duc Tran, Tikvah Harrison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kotojo/flash_card_app/issues"
+  },
+  "homepage": "https://github.com/kotojo/flash_card_app#readme"
+}
