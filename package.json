@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/kotojo/flash_card_app/issues"
   },
-  "homepage": "https://github.com/kotojo/flash_card_app#readme"
+  "homepage": "https://github.com/kotojo/flash_card_app#readme",
+  "dependencies": {
+    "express": "^4.13.0",
+    "path": "^0.11.14"
+  }
 }
