@@ -1,0 +1,27 @@
+{
+  "name": "flash_card_app",
+  "version": "1.0.0",
+  "homepage": "https://github.com/kotojo/flash_card_app",
+  "authors": [
+    "Duc <trananhduc1004@gmail.com>"
+  ],
+  "description": "A flash card app that helps people to learn",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "flashcard",
+    "project",
+    "app",
+    "club",
+    "life"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
