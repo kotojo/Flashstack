@@ -26,3 +26,27 @@ app.use('/api', apiRouter); // Mount middleware router to url
 // Hook to mongodb database
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/flash_card_app');
+// Create user
+var userSchema = new mongoose.Schema({
+ name: String,
+ age: Number,
+ username: String
+});
+var User = mongoose.model('User', userSchema);
+var userOne = new User({ name: 'Simon' });
+var userTwo = new User({ name: 'Sally' });
+userOne.save();
+userTwo.save();
+User.findOne({'name': 'Sally'}, function(err, user){
+	console.log(user);
+});
+User.remove({'name': 'Sally'}
+	, function(err, user){
+	if (err){ 
+		return handleError(err);
+	} else {
+		console.log('removed');
+	}
+}
+);
+
