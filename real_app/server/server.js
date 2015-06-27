@@ -26,27 +26,31 @@ app.use('/api', apiRouter); // Mount middleware router to url
 // Hook to mongodb database
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/flash_card_app');
-// Create user
-var userSchema = new mongoose.Schema({
- name: String,
- age: Number,
- username: String
+// Get the models:
+var User = require('./models/user');
+var Card = require('./models/card');
+var Deck = require('./models/deck');
+// Remove all existent users and populate new users.
+User.remove({}, removeCallback)
+.then(function(){
+	var userOne = new User({ name: 'Simon', nickname: 'Duc', age: 20 });
+	var userTwo = new User({ name: 'Sally', username: 'Sally the boss'});
+	userOne.save();
+	userTwo.save();
 });
-var User = mongoose.model('User', userSchema);
-var userOne = new User({ name: 'Simon' });
-var userTwo = new User({ name: 'Sally' });
-userOne.save();
-userTwo.save();
-User.findOne({'name': 'Sally'}, function(err, user){
-	console.log(user);
+Card.remove({}, removeCallback)
+.then(function(){
+	Card.create({name: "Duc"});
 });
-User.remove({'name': 'Sally'}
-	, function(err, user){
-	if (err){ 
+Deck.remove({}, removeCallback)
+.then(function(){
+	Deck.create({name: "duc"});
+});
+function removeCallback(err, removal ) {
+	if (err) {
 		return handleError(err);
 	} else {
-		console.log('removed');
+		console.log(removal.result.n + ' documents removed');
 	}
 }
-);
 
