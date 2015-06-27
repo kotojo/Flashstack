@@ -16,3 +16,13 @@ app.use('/', express.static('../client'));
 // app.use:  Mount the middleware function to the path. Default to '/'
 // Note: if there is an index.html file, it will be bounded directly to '/' (the home path)
 // 'partials folder': Where to keep the Front end (angularjs) single view.
+
+// Create simple router
+var apiRouter = express.Router();// Create an instance of router on api router
+apiRouter.get('/', function(req, res){
+	res.json({'message': "Welcome to api router"});
+});
+app.use('/api', apiRouter); // Mount middleware router to url
+// Hook to mongodb database
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/flash_card_app');
