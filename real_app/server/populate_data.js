@@ -1,13 +1,14 @@
 // This is the main file for models.
-var User = require('./user');
-var Card = require('./card');
-var Deck = require('./deck');
+var Card = require('./api/card/card.model');
+var Deck = require('./api/deck/deck.model');
+var User = require('./api/user/user.model');
+
 // -------------------------------------------------------------------------
 // Populate some sample datas
 var userSamples = [ 
 			{name: 'Bruce', age: 25, username:'kotojo'},
-			{name: 'Chris', age: 30, username:'chriskemeza'}, 
-			{name: 'Duc Anh tran', age: 21, username:'trananhduc'},
+			{name: 'Chri', age: 30, username:'chriskemeza'}, 
+			{name: 'Du Anh tran', age: 21, username:'trananhduc'},
 			{name: 'Tikvah', age: 25, username: 'tikvah'}
 			];
 var deckSamples = [{name: 'Deck 1'}, {name: 'Deck 2'}];

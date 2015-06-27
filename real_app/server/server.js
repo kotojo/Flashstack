@@ -16,16 +16,19 @@ app.use('/', express.static('../client'));
 // Note: if there is an index.html file, it will be bounded directly to '/' (the home path)
 // 'partials folder': Where to keep the Front end (angularjs) single view.
 //--------------------------------------------------------------------------------
-// Create simple router
-var apiRouter = express.Router();// Create an instance of router on api router
-apiRouter.get('/', function(req, res){
-	res.json({'message': "Welcome to api router"});
-});
-app.use('/api', apiRouter); // Mount middleware router to url
+
+// Test routing user
+var userRouter = require('./api/user');
+app.use('/users', userRouter); // Mount middleware router to url
 //----------------------------------------------------------------
+var deckRouter = require('./api/deck');
+app.use('/decks', deckRouter);
+//----------------------------------------------------------------
+var cardRouter = require('./api/card');
+app.use('/cards', cardRouter);
 // Hook to mongodb database
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/flash_card_app');
 // Populate datas:
-var Models = require('./models'); // Automatically find and get the module exported from index.js file from models folder.
+var Models = require('./populate_data'); // Automatically find and get the module exported from index.js file from models folder.
 Models.populateData();
