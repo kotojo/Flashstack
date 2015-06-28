@@ -2,18 +2,9 @@
 // Get the router 
 var express = require('express');
 var router = express.Router();
-// Get the model
-var User = require('./user.model');
 //
-router.route('/')
-	.get(function(req, res){
-		User.find({}, function(err, datas){
-			if (err) {
-				res.send(err);
-			} else {
-				console.log('Requested to show all users');
-				res.json(datas);
-			}
-		});
-	});
+var User = require('./user.model'); // Get the model
+var UserController = require('./user.controller')// Get the controller
+// Middleware for requests for user
+router.route('/').get(UserController.index);
 module.exports = router;
