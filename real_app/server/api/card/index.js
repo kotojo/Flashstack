@@ -6,3 +6,7 @@ var CardController = require('./card.controller');
 router.route('/')
 	.get(CardController.index);
 module.exports = router;
+
+
+
+
