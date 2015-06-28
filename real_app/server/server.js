@@ -4,20 +4,20 @@ var path = require('path'); // Module that provides helper function to handle pa
 //
 var app = express(); // Create a server/app  object
 //-----------------------------------------------------------------------------------
-var server = app.listen(6969, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('Club life happening at http://%s:%s', host, port);
-}); // Starts the server
+
 //-----------------------------------------------------------------------------
-// Serve the '../client' folder directly to the server.
-app.use('/', express.static('../client'));
+
+
+
+
 // app.use:  Mount the middleware function to the path. Default to '/'
 // Note: if there is an index.html file, it will be bounded directly to '/' (the home path)
-// 'partials folder': Where to keep the Front end (angularjs) single view.
 //--------------------------------------------------------------------------------
 
 // Test routing user
+
+
+
 var userRouter = require('./api/user');
 app.use('/users', userRouter); // Mount middleware router to url
 //----------------------------------------------------------------
@@ -32,3 +32,12 @@ mongoose.connect('mongodb://localhost/flash_card_app');
 // Populate datas:
 var Models = require('./populate_data'); // Automatically find and get the module exported from index.js file from models folder.
 Models.populateData();
+app.use(express.static(__dirname + '/../client')); // Serve the '../client' folder directly to the server.
+app.get('*', function(req, res) {
+	res.sendFile(path.join(__dirname + '/../client/index.html'));
+}); // Route to the single front end html file
+var server = app.listen(6969, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Club life happening at http://%s:%s', host, port);
+}); // Starts the server
