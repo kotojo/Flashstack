@@ -1,26 +1,43 @@
-
-
 <!DOCTYPE html>
-<html ng-app="flashcardApp">
+<html>
 <head>
-  <title>Clublyfe</title>
+	<meta charset="UTF-8">
+	<!-- For angular routing -->
+	<base href="/">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!-- Libraries -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-route.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-animate.js"></script>
+	<!-- Controllers -->
+	<script src="controllers/mainCtrl.js"></script>
+	<script src="controllers/userCtrl.js"></script>
+	<!-- Services -->
+	<script src="services/authService.js"></script>
+	<script src="services/userService.js"></script>
+	<!-- main file -->
+	<script src="app.routes.js"></script>
+	<script src="app.js"></script>
+	<title></title>
 </head>
-<body ng-controller="mainController">
-<p>I love andrew W.K.</p>
-What's your name, pal?? <input ng-model="name">
-<p>Welcome to flashcard app  {{name}}</p>
-<ul>
-	<li ng-repeat="anUser in users">
-		<p>Name: {{anUser.name}}</p>
-		<p>Username: {{anUser.username}}</p>
-		<p>ID:  {{anUser._id}}</p>
-		<p>password: {{anUser.password}}</p>
-	</li>
-</ul>
+<body ng-app="flashcardApp" ng-controller="mainController as main">
+<!-- Navbar -->
+<header> 
+	<div class="navbar navbar-inverse" ng-if="main.loggedIn">
+	<div class="container">
+		<div class="navbar-header">
+			<a href="/" class="navbar-brand"><span class="glyphicon glyphicon-fire text-danger"></span> User CRM</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li ng-if="!main.loggedIn"><a href="/login">Login</a></li>
+			<li ng-if="main.loggedIn" class="navbar-text">Hello {{ main.user.name }}!</li>
+			<li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
+		</ul>
+	</div>
+	</div>
+</header>
+<main> 	
+	<div ng-view></div>
+</main>
 </body>
-<!-- Load libraries -->
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-<!-- Load main frontend file -->
-<script type="text/javascript" src="app.js"></script>
 </html>

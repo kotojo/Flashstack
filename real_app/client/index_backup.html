@@ -1,0 +1,27 @@
+
+
+<!DOCTYPE html>
+<html ng-app="flashcardApp">
+<head>
+  <title>Clublyfe</title>
+</head>
+<body ng-controller="mainController">
+<p>I love andrew W.K.</p>
+What's your name, pal?? <input ng-model="name">
+<p>Welcome to flashcard app  {{name}}</p>
+<ul>
+	<li ng-repeat="anUser in users">
+		<p>Name: {{anUser.name}}</p>
+		<p>Username: {{anUser.username}}</p>
+		<p>ID:  {{anUser._id}}</p>
+		<p>password: {{anUser.password}}</p>
+	</li>
+</ul>
+</body>
+<!-- Load libraries -->
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="userService.js"></script>
+<!-- Load main frontend file -->
+<script type="text/javascript" src="app.js"></script>
+</html>
