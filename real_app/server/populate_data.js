@@ -6,10 +6,10 @@ var User = require('./api/user/user.model');
 // -------------------------------------------------------------------------
 // Populate some sample datas
 var userSamples = [ 
-			{name: 'Bruce', age: 25, username:'kotojo'},
-			{name: 'Chri', age: 30, username:'chriskemeza'}, 
-			{name: 'Du Anh tran', age: 21, username:'trananhduc'},
-			{name: 'Tikvah', age: 25, username: 'tikvah'}
+			{name: 'Bruce', age: 25, username:'kotojo', password: '123456789'},
+			{name: 'Chri', age: 30, username:'chriskemeza', password: '123456789'}, 
+			{name: 'Du Anh tran', age: 21, username:'trananhduc', password: '123456789'},
+			{name: 'Tikvah', age: 25, username: 'tikvah', password: '123456789'}
 			];
 var deckSamples = [{name: 'Deck 1'}, {name: 'Deck 2'}];
 var cardSamples = [{name: 'Card 1'}, {name: 'Card 2'}, {name: 'Card 3'}];
