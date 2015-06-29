@@ -2,6 +2,7 @@ angular.module('flashcardApp', [
 		'app.routes',
 		'authService',
 		'mainCtrl',
+    'ui.bootstrap',
 		// 'userCtrl',
 		// 'userService'
 	]);

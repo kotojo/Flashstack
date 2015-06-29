@@ -9,6 +9,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-route.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-animate.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 	<!-- Controllers -->
 	<script src="controllers/mainCtrl.js"></script>
 	<script src="controllers/userCtrl.js"></script>
@@ -22,7 +23,7 @@
 </head>
 <body ng-app="flashcardApp" ng-controller="mainController as main">
 <!-- Navbar -->
-<header> 
+<header>
 	<div class="navbar navbar-inverse" ng-if="main.loggedIn">
 	<div class="container">
 		<div class="navbar-header">
@@ -36,7 +37,7 @@
 	</div>
 	</div>
 </header>
-<main> 	
+<main>
 	<div ng-view></div>
 </main>
 </body>
