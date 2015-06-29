@@ -7,9 +7,10 @@ var router = express.Router();
 var Deck = require('./deck.model');
 var DeckController = require('./deck.controller');
 //
-router.route('/')
-	.get(DeckController.index);
-
+router.get('/', DeckController.index);
+router.post('/', DeckController.create);
+router.get('/:id', DeckController.show);
+router.delete('/:id', DeckController.destroy)
 module.exports = router;
 
 

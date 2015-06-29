@@ -1,10 +1,12 @@
 // Load the modules:
 var express = require('express');// Module that provides web app framework that provides simpler interface to create request endpoints, handle sessions, 
 var path = require('path'); // Module that provides helper function to handle path manipulation
+var bodyParser = require('body-parser');// Module that help parse the body of the request as json
 //
 var app = express(); // Create a server/app  object
 //-----------------------------------------------------------------------------------
-
+// app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 //-----------------------------------------------------------------------------
 
 
