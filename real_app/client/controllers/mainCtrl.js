@@ -19,7 +19,7 @@ angular.module('mainCtrl', [])
 				vm.processing = false;
 				// if a user successfully logs in, redirect to users page
 				if (data.success) 
-					$location.path('/users');
+					$location.path('/api/users');
 				else
 					vm.error = data.message;
 			});
