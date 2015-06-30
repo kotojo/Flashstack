@@ -20,4 +20,29 @@ angular.module('userCtrl', ['userService'])
       vm.users = data;
     });
 
+})
+.controller('userCreateController', function(User) {
+
+  var vm = this;
+
+  //var to hide or show elements in view depending on create or edit page
+  vm.type = 'create';
+
+  //create a user
+  vm.saveUser = function() {
+    vm.processing = true;
+
+    //clear message
+    vm.message = '';
+
+    //use User service create method
+    User.create(vm.userData)
+      .success(function(data) {
+        vm.processing = false;
+
+        //clear the form
+        vm.userData = {};
+        vm.message = data.message;
+      });
+  };
 });

@@ -13,6 +13,11 @@ angular.module('app.routes', ['ngRoute'])
 			templateUrl: 'partials/users/all.html',
 			controller: 'userController',
 			controllerAs: 'user'
+		})
+		.when('/users/create', {
+			templateUrl: 'partials/users/single.html',
+			controller: 'userCreateController',
+			controllerAs: 'user'
 		});
 		$locationProvider.html5Mode(true);
 	});
