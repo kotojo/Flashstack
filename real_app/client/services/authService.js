@@ -8,6 +8,7 @@ angular.module('authService', [])
 	.factory('Auth', function($http, $q, AuthToken) {
 		// create auth factory object
 		var authFactory = {};
+		authFactory.currentUserId = null;
 		// log a user in
 		authFactory.login = function(username, password) {
 		// return the promise object and its data
@@ -17,6 +18,7 @@ angular.module('authService', [])
 			})
 			.success(function(data) {
 				AuthToken.setToken(data.token);
+				authFactory.currentUserId = data.user_id;
 				return data;
 			});
 		};
@@ -24,6 +26,7 @@ angular.module('authService', [])
 		authFactory.logout = function() {
 		// clear the token
 			AuthToken.setToken();
+			authFactory.currentUserId = null;
 		};
 		// check if a user is logged in
 		// checks if there is a local token
@@ -36,7 +39,7 @@ angular.module('authService', [])
 		// get the logged in user
 		authFactory.getUser = function() {
 			if (AuthToken.getToken())
-				return $http.get('/me', { cache: true });
+				return $http.get('/api/me', { cache: true });
 			else
 				return $q.reject({ message: 'User has no token.' });
 		};

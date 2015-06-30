@@ -38,11 +38,12 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav">
-		        <li><a href="/users">Profile</a></li>
+		        <li><a ng-href="/users/{{ main.currentUserId }}">Profile</a></li>
 		        <li><a href="/deck">Decks</a></li>
+		        <li><a href="#">Current User: {{ main.currentUserId }}</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
-		      	<li ng-if="main.loggedIn" class="navbar-text">{{ main.user.name }}</li>
+		      	<li ng-if="main.loggedIn" class="navbar-text">{{ main.user.data.name }}</li>
 		        <li ng-if="!main.loggedIn"><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
 		        <li ng-if="!main.loggedIn"><a href="/users/create"><span class="glyphicon glyphicon-user"></span> No Account? Sign Up</a></li>
 		        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Up</a></li> -->
@@ -54,6 +55,7 @@
 
 </header>
 <main>
+  <p>CurrentUserId: {{ main.currentUserId }}</p>
 	<div ng-view></div>
 </main>
 </body>

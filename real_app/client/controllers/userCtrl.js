@@ -35,7 +35,17 @@ angular.module('userCtrl', ['userService'])
       });
   };
 })
-.controller('userCreateController', function(User, $location) {
+.controller('userShowController', function(User, $routeParams) {
+
+  var vm = this;
+
+  User.get($routeParams.user_id)
+    .success(function(data) {
+      vm.user = data;
+  });
+
+})
+.controller('userCreateController', function(User) {
 
   var vm = this;
 

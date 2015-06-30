@@ -50,7 +50,7 @@ exported.generateToken = function(req, res){
 	var jwt = require('jsonwebtoken');
 	var secret = 'something';
 	User.findOne({username: req.body.username})
-		.select('name username password').exec(function(err, user){
+		.select('name username password _id').exec(function(err, user){
 		if (err) throw err;
 		if (!user) {
 			res.json({
@@ -74,6 +74,7 @@ exported.generateToken = function(req, res){
 				res.json({
 					success: true,
 					message: "Huray",
+					user_id: user._id,
 					token: token
 				});
 			}

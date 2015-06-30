@@ -19,9 +19,14 @@ angular.module('app.routes', ['ngRoute'])
 			controller: 'userCreateController',
 			controllerAs: 'user'
 		})
-		.when('/users/:user_id', {
+		.when('/users/edit/:user_id', {
 			templateUrl: 'partials/users/single.html',
 			controller: 'userEditController',
+			controllerAs: 'user'
+		})
+		.when('/users/:user_id', {
+			templateUrl: 'partials/users/show.html',
+			controller: 'userShowController',
 			controllerAs: 'user'
 		});
 		$locationProvider.html5Mode(true);
