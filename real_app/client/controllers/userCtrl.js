@@ -1,4 +1,4 @@
-//start module and inject the service
+  //start module and inject the service
 angular.module('userCtrl', ['userService'])
 
 //user controller for main page and injecting factory
@@ -19,7 +19,6 @@ angular.module('userCtrl', ['userService'])
       //bind users to vm when we get them
       vm.users = data;
     });
-
 })
 .controller('userCreateController', function(User) {
 
@@ -43,6 +42,21 @@ angular.module('userCtrl', ['userService'])
         //clear the form
         vm.userData = {};
         vm.message = data.message;
+      });
+  };
+  vm.deleteUser = function(id) {
+    vm.processing = true;
+
+    //pass in user id as param
+    User.delete(id)
+      .success(function(data) {
+
+        //reget all users and refresh list
+        User.all()
+          .success(function(data) {
+            vm.processing = false;
+            vm.users = data;
+          });
       });
   };
 });

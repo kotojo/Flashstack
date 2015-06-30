@@ -2,8 +2,8 @@ angular.module('flashcardApp', [
 		'app.routes',
 		'authService',
 		'mainCtrl',
-    'userCtrl',
-    'userService'
+	    'userCtrl',
+    	'userService'
 	])
 
 .config(function($httpProvider) {
