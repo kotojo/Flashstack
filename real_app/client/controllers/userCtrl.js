@@ -19,8 +19,23 @@ angular.module('userCtrl', ['userService'])
       //bind users to vm when we get them
       vm.users = data;
     });
+
+  vm.deleteUser = function(id) {
+    vm.processing = true;
+    //pass in user id as param
+    User.delete(id)
+      .success(function(data) {
+
+        //get all users and refresh list
+        User.all()
+          .success(function(data) {
+            vm.processing = false;
+            vm.users = data;
+          });
+      });
+  };
 })
-.controller('userCreateController', function(User) {
+.controller('userCreateController', function(User, $location) {
 
   var vm = this;
 
@@ -38,25 +53,41 @@ angular.module('userCtrl', ['userService'])
     User.create(vm.userData)
       .success(function(data) {
         vm.processing = false;
-
         //clear the form
         vm.userData = {};
-        vm.message = data.message;
+        vm.message = 'User created successfully!';
       });
   };
-  vm.deleteUser = function(id) {
+})
+.controller('userEditController', function(User, $routeParams) {
+
+  var vm = this;
+
+  vm.type = 'edit';
+
+  //get the user data for the user we want to edit using routeparams
+  User.get($routeParams.user_id)
+    .success(function(data) {
+      vm.userData = data;
+  });
+
+  //save user
+  vm.saveUser = function() {
     vm.processing = true;
+    vm.message = '';
 
-    //pass in user id as param
-    User.delete(id)
-      .success(function(data) {
+  //call the update function
+  User.update($routeParams.user_id, vm.userData)
+    .success(function(data) {
+      vm.processing = false;
 
-        //reget all users and refresh list
-        User.all()
-          .success(function(data) {
-            vm.processing = false;
-            vm.users = data;
-          });
-      });
+      vm.userData = {};
+
+      vm.message = data.message;
+    });
   };
+
 });
+
+
+

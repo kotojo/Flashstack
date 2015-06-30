@@ -28,7 +28,9 @@
       <td>{{ person.username }}</td>
       <td class="col-sm-2">
         <a ng-href="/users/{{ person._id }}" class="btn btn-danger">Edit</a>
-        <a ng-href="#" ng-click="user.deleteUser(person._id)" class="btn btn-primary">Delete</a>
+        <a href="#"
+          ng-click="user.deleteUser(person._id)"
+          class="btn btn-primary">Delete</a>
       </td>
     </tr>
   </tbody>
