@@ -83,7 +83,7 @@ angular.module('authService', [])
 			// console.log(token);
 			// if the token exists, add it to the header as x-access-token
 			if (token) {
-				console.log('Got token');
+				// console.log('Got token');
 				config.headers['x-access-token'] = token;
 			}
 			// $window.localStorage['token'] = config.headers['x-access-token'];
@@ -94,7 +94,7 @@ angular.module('authService', [])
 		interceptorFactory.responseError = function(response) {
 		// if our server returns a 403 forbidden response
 			if (response.status == 403) {
-				console.log('Redirecting to login');
+				// console.log('Redirecting to login');
 				$location.path('/login');
 				// return the errors from the server as a promise
 			}

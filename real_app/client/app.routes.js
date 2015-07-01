@@ -48,6 +48,28 @@ angular.module('app.routes', ['ngRoute'])
 			templateUrl: 'partials/decks/show.html',
 			controller: 'deckShowController',
 			controllerAs: 'deck'
+		})
+		.when('/cards', {
+			templateUrl: 'partials/cards/all.html',
+			controller: 'cardController',
+			controllerAs: 'card'
+		})
+		.when('/cards/create', {
+			templateUrl: 'partials/cards/single.html',
+			controller: 'cardCreateController',
+			controllerAs: 'card'
+		})
+		.when('/cards/edit/:card_id', {
+			templateUrl: 'partials/cards/single.html',
+			controller: 'cardEditController',
+			controllerAs: 'card'
+		})
+		.when('/cards/:card_id', {
+			templateUrl: 'partials/cards/show.html',
+			controller: 'cardShowController',
+			controllerAs: 'card'
 		});
+		;
+
 		$locationProvider.html5Mode(true);
 	});
