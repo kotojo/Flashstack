@@ -1,6 +1,8 @@
 var mongoose = require('mongoose'); // Get mongoose ORM
 var deckSchema = new mongoose.Schema({
 	name: String,
+  description: String,
+  cards: Array,
   user_id: String
 });
 var Deck = mongoose.model('Deck', deckSchema);

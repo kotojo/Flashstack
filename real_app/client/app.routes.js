@@ -28,6 +28,26 @@ angular.module('app.routes', ['ngRoute'])
 			templateUrl: 'partials/users/show.html',
 			controller: 'userShowController',
 			controllerAs: 'user'
+		})
+		.when('/decks', {
+			templateUrl: 'partials/decks/all.html',
+			controller: 'deckController',
+			controllerAs: 'deck'
+		})
+		.when('/decks/create', {
+			templateUrl: 'partials/decks/single.html',
+			controller: 'deckCreateController',
+			controllerAs: 'deck'
+		})
+		.when('/decks/edit/:deck_id', {
+			templateUrl: 'partials/decks/single.html',
+			controller: 'deckEditController',
+			controllerAs: 'deck'
+		})
+		.when('/decks/:deck_id', {
+			templateUrl: 'partials/decks/show.html',
+			controller: 'deckShowController',
+			controllerAs: 'deck'
 		});
 		$locationProvider.html5Mode(true);
 	});
