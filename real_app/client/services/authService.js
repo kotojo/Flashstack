@@ -5,7 +5,7 @@ angular.module('authService', [])
 // inject $q to return promise objects
 // inject AuthToken to manage tokens
 // ===================================================
-	.factory('Auth', function($http, $q, AuthToken) {
+	.factory('Auth', function($window, $http, $q, AuthToken) {
 		// create auth factory object
 		var authFactory = {};
 		authFactory.currentUserId = null;
@@ -18,6 +18,8 @@ angular.module('authService', [])
 			})
 			.success(function(data) {
 				AuthToken.setToken(data.token);
+				// Stored the current user id in localhost:
+				$window.localStorage.setItem('currentUserId', data.user_id);
 				authFactory.currentUserId = data.user_id;
 				return data;
 			});
@@ -26,6 +28,7 @@ angular.module('authService', [])
 		authFactory.logout = function() {
 		// clear the token
 			AuthToken.setToken();
+			$window.localStorage.removeItem('currentUserId');
 			authFactory.currentUserId = null;
 		};
 		// check if a user is logged in
@@ -74,8 +77,10 @@ angular.module('authService', [])
 		var interceptorFactory = {};
 		// this will happen on all HTTP requests
 		interceptorFactory.request = function(config) {
+			// console.log('Client request intercepted');
 		// grab the token
 		var token = AuthToken.getToken();
+		// console.log(token);
 		// if the token exists, add it to the header as x-access-token
 		if (token)
 		config.headers['x-access-token'] = token;

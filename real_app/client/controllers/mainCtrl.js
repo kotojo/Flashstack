@@ -1,8 +1,9 @@
 angular.module('mainCtrl', [])
-	.controller('mainController', function($rootScope, $location, Auth){
+	.controller('mainController', function($window, $scope, $rootScope, $location, Auth){
 		var vm = this;
-		vm.currentUserId = Auth.currentUserId;
-
+		vm.currentUserId = $window.localStorage.getItem('currentUserId');
+		console.log(vm.currentUserId);
+		vm.randomVar = 1;
 		$rootScope.$watch(function() {
 			return Auth.currentUserId;
 		}, function(newValue) {

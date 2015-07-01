@@ -23,5 +23,14 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.1",
+    "angular-bootstrap": "~0.13.0",
+    "angular-route": "~1.4.1",
+    "angular-ui-router": "~0.2.15",
+    "angular-animate": "~1.4.1",
+    "bootstrap": "~3.3.5"
+  }
 }

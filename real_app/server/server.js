@@ -10,23 +10,17 @@ var middlewares = require('./api/middlewares');
 app.use(bodyParser.json());
 //-----------------------------------------------------------------------------
 
-// Main routes
-app.use('/api', require('./api/routes'));
-//
-app.post('/authenticate', middlewares.generateToken);
-//
-app.get('/me', function(req, res){
-	res.send(req.decoded);
-});
+
 // app.use:  Mount the middleware function to the path. Default to '/'
 // Note: if there is an index.html file, it will be bounded directly to '/' (the home path)
 //--------------------------------------------------------------------------------
 
 // Test routing user
-
-
-
-// app.use('/cards', cardRouter);
+app.use('/api', require('./api/routes'));
+app.post('/authenticate', middlewares.generateToken);
+app.get('/me', function(req, res){
+	res.send(req.decoded);
+});
 // Hook to mongodb database
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/flash_card_app');
@@ -40,6 +34,10 @@ app.get('*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/../client/index.html'));
 }); // Whenever a request comes into our server (using the * wildcard method), we will send
 //		the user the index.html file which will have all of our Angular/HTML/CSS code.
+// Main routes
+//
+//
+
 var server = app.listen(6969, function () {
   var host = server.address().address;
   var port = server.address().port;
