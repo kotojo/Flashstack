@@ -8,7 +8,6 @@ var middlewares = require('./../middlewares');
 var Deck = require('./deck.model');
 var DeckController = require('./deck.controller');
 //
-
 router.get('/', DeckController.index);
 router.post('/',  DeckController.create);
 router.get('/:id', DeckController.show);
