@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 //--------------------------------------------------------------------------------
 
 // Test routing user
-// app.use('/api', require('./api/routes'));
+app.use('/api', require('./api/routes'));
 app.post('/authenticate', middlewares.generateToken);
 app.get('/me', function(req, res){
 	res.send(req.decoded);

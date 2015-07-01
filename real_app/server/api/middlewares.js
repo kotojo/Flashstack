@@ -3,6 +3,7 @@ var exported = {};
 
 exported.indexFunction = function(model) {
 	return function(req, res){
+		console.log('indexed');
 		model.find({}, function(err, data){
 			if (err) return res.send(500, err);
 			return res.status(200).json(data);
@@ -82,6 +83,7 @@ exported.generateToken = function(req, res){
 	});
 };
 exported.validateToken = function(req, res, next){
+	// console.log('Validating token');
 	var jwt = require('jsonwebtoken');
 	var secret = 'something';
 	var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -95,7 +97,7 @@ exported.validateToken = function(req, res, next){
 				});
 			} else {
 				req.decoded = decoded;
-				console.log('validateToken calling next()');
+				console.log('token validated');
 				next();
 			}
 		});

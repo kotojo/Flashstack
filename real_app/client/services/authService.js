@@ -77,7 +77,7 @@ angular.module('authService', [])
 		var interceptorFactory = {};
 		// this will happen on all HTTP requests
 		interceptorFactory.request = function(config) {
-			console.log('Client request intercepted');
+			// console.log('Client request intercepted');
 		// grab the token
 			var token = AuthToken.getToken();
 			// console.log(token);

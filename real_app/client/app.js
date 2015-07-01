@@ -5,7 +5,7 @@ angular.module('flashcardApp', [
 	  'userCtrl',
     'userService',
     'deckCtrl',
-    // 'deckService'
+    'deckService'
 	])
 
 .config(function($httpProvider) {
