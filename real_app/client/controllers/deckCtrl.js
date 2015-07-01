@@ -6,6 +6,14 @@ angular.module('deckCtrl', ['deckService'])
 
   var vm = this;
 
+  // vm.currentUserId = Auth.currentUserId;
+
+  // $rootScope.$watch(function() {
+  //   return Auth.currentUserId;
+  // }, function(newValue) {
+  //   vm.currentUserId = newValue;
+  // });
+
   //processing variable to show loading things
   vm.processing = true;
 
@@ -60,12 +68,15 @@ angular.module('deckCtrl', ['deckService'])
     vm.message = '';
 
     //deckdeck service create method
+
+    //Deck service create method
+
     Deck.create(vm.deckData)
       .success(function(data) {
         vm.processing = false;
         //clear the form
         vm.deckData = {};
-        vm.message = 'deck created successfully!';
+        vm.message = 'Deck created successfully!';
       });
   };
 })
