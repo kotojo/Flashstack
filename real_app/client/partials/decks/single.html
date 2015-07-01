@@ -1,1 +1,38 @@
-<h1>{{deck}}</h1>
+<div class="row col-sm-6 col-sm-offset-3">
+  <div class="jumbotron">
+    <h1 ng-if="deck.type == 'create'">Create Deck</h1>
+    <h1 ng-if="deck.type == 'edit'">Edit Deck</h1>
+    <form class="form-horizontal" ng-submit="deck.saveDeck()">
+      <!-- USERNAME INPUT -->
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" ng-model="deck.deckData.name">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" ng-model="deck.deckData.description">
+      </div>
+      <div ng-hide="true" class="form-group">
+        <label>User_id</label>
+        <input type="text" class="form-control" ng-model="deck.deckData.userId" ng-init="deck.deckData.userId = main.currentUserId">
+      </div>
+      <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <button type="submit"
+                class="btn btn-success btn-large btn-block"
+                ng-if="deck.type == 'create'">Create Deck</button>
+        <button type="submit"
+                class="btn btn-success btn-large btn-block"
+                ng-if="deck.type == 'edit'">Update Deck</button>
+      </div>
+      </div>
+    </form>
+    <div class="row" ng-show="deck.message">
+      <div class="col-sm-6 col-sm-offset-2">
+        <div class="alert alert-info">
+          {{ deck.message }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
