@@ -97,8 +97,11 @@
 
 /*USER-PROFILE===================================*/
 
-.userpage {
+#usershow {
 	background: rgba(0, 0, 0, .2);
 	margin: 0 auto;
 	width: 100%;
+	font-family: OpenSans;
 }
+
+
