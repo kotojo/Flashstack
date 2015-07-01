@@ -15,7 +15,6 @@
 <table class="table table-bordered table-striped" ng-show="deck.decks">
   <thead>
     <tr>
-      <th>_id</th>
       <th>Name</th>
       <th>Description</th>
       <th>Cards</th>
@@ -24,11 +23,11 @@
   </thead>
   <tbody>
     <tr ng-repeat="thing in deck.decks">
-      <td>{{ thing._id }}</td>
       <td>{{ thing.name }}</td>
       <td>{{ thing.description }}</td>
       <td>{{ thing.cards }}</td>
       <td class="col-sm-2">
+        <a ng-href="/decks/{{ thing._id }}" class="btn btn-primary">View</a>
         <a ng-href="/decks/edit/{{ thing._id }}" class="btn btn-danger">Edit</a>
         <a href="#"
           ng-click="deck.deleteDeck(thing._id)"
