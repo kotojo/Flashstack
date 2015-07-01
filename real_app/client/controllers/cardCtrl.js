@@ -1,8 +1,8 @@
   //start module and inject the service
-angular.module('deckCtrl', ['deckService'])
+angular.module('cardCtrl', ['cardService'])
 
-//deck controller for main page and injecting factory
-.controller('deckController', function(Deck) {
+//card controller for main page and injecting factory
+.controller('cardController', function(Card) {
 
   var vm = this;
 
@@ -17,92 +17,92 @@ angular.module('deckCtrl', ['deckService'])
   //processing variable to show loading things
   vm.processing = true;
 
-  //grab all decks
-  Deck.all()
+  //grab all cards
+  Card.all()
     .success(function(data) {
 
-      //remove processing when we get decks
+      //remove processing when we get cards
       vm.processing = false;
 
-      //bind decks to vm when we get them
-      vm.decks = data;
+      //bind cards to vm when we get them
+      vm.cards = data;
     });
 
-  vm.deleteDeck = function(id) {
+  vm.deleteCard = function(id) {
     vm.processing = true;
-    //pass in deck id as param
-    Deck.delete(id)
+    //pass in card id as param
+    Card.delete(id)
       .success(function(data) {
 
-        //get all decks and refresh list
-        Deck.all()
+        //get all cards and refresh list
+        Card.all()
           .success(function(data) {
             vm.processing = false;
-            vm.decks = data;
+            vm.cards = data;
           });
       });
   };
 })
-.controller('deckShowController', function(Deck, $routeParams) {
+.controller('cardShowController', function(Card, $routeParams) {
 
   var vm = this;
 
-  Deck.get($routeParams.deck_id)
+  Card.get($routeParams.card_id)
     .success(function(data) {
-      vm.deck = data;
+      vm.card = data;
   });
 
 })
-.controller('deckCreateController', function(Deck) {
+.controller('cardCreateController', function(Card) {
 
   var vm = this;
 
   //var to hide or show elements in view depending on create or edit page
   vm.type = 'create';
 
-  //create a deck
-  vm.saveDeck = function() {
+  //create a card
+  vm.saveCard = function() {
     vm.processing = true;
 
     //clear message
     vm.message = '';
 
-    //deckdeck service create method
+    //cardcard service create method
 
-    //Deck service create method
+    //Card service create method
 
-    Deck.create(vm.deckData)
+    Card.create(vm.cardData)
       .success(function(data) {
         vm.processing = false;
         //clear the form
-        vm.deckData = {};
-        vm.message = 'Deck created successfully!';
+        vm.cardData = {};
+        vm.message = 'Card created successfully!';
       });
   };
 })
-.controller('deckEditController', function(Deck, $routeParams) {
+.controller('cardEditController', function(Card, $routeParams) {
 
   var vm = this;
 
   vm.type = 'edit';
 
-  //get the deck data for the deck we want to edit using routeparams
-  Deck.get($routeParams.deck_id)
+  //get the card data for the card we want to edit using routeparams
+  Card.get($routeParams.card_id)
     .success(function(data) {
-      vm.deckData = data;
+      vm.cardData = data;
   });
 
-  //save deck
-  vm.saveDeck = function() {
+  //save card
+  vm.saveCard = function() {
     vm.processing = true;
     vm.message = '';
 
   //call the update function
-  Deck.update($routeParams.deck_id, vm.deckData)
+  Card.update($routeParams.card_id, vm.cardData)
     .success(function(data) {
       vm.processing = false;
 
-      vm.deckData = {};
+      vm.cardData = {};
 
       vm.message = data.message;
     });
