@@ -77,24 +77,28 @@ angular.module('authService', [])
 		var interceptorFactory = {};
 		// this will happen on all HTTP requests
 		interceptorFactory.request = function(config) {
-			// console.log('Client request intercepted');
+			console.log('Client request intercepted');
 		// grab the token
-		var token = AuthToken.getToken();
-		// console.log(token);
-		// if the token exists, add it to the header as x-access-token
-		if (token)
-		config.headers['x-access-token'] = token;
-		$window.localStorage['token'] = config.headers['x-access-token'];
-		// console.log(config);
-		return config;
+			var token = AuthToken.getToken();
+			// console.log(token);
+			// if the token exists, add it to the header as x-access-token
+			if (token) {
+				console.log('Got token');
+				config.headers['x-access-token'] = token;
+			}
+			// $window.localStorage['token'] = config.headers['x-access-token'];
+			// console.log(config);
+			return config;
 		};
 		// happens on response errors
 		interceptorFactory.responseError = function(response) {
 		// if our server returns a 403 forbidden response
-		if (response.status == 403)
-		$location.path('/login');
-		// return the errors from the server as a promise
-		return $q.reject(response);
+			if (response.status == 403) {
+				console.log('Redirecting to login');
+				$location.path('/login');
+				// return the errors from the server as a promise
+			}
+			return $q.reject(response);
 		};
 		return interceptorFactory;
 	});

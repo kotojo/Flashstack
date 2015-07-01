@@ -1,8 +1,6 @@
 angular.module('app.routes', ['ngRoute'])
 	.config(function($routeProvider, $locationProvider){
 		$routeProvider
-		.when('/api/users', {
-		})
 		.when('/', {
 			templateUrl: '/partials/home.html'
 		})

@@ -12,7 +12,6 @@ angular.module('flashcardApp', [
 
   //attach auth interceptor into the http requests
   $httpProvider.interceptors.push('AuthInterceptor')
-
 });
 
 

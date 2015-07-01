@@ -42,7 +42,7 @@
 		      <ul class="nav navbar-nav">
 		        <li><a ng-href="/users/{{ main.currentUserId }}">Profile</a></li>
 		        <li><a href="/decks">Decks</a></li>
-		        <li><a href="#">Current User: {{ main.currentUserI }} Random var: {{main.randomVar}}</a></li>
+		        <li ng-if="main.loggedIn"><a href="#">Current User: {{ main.currentUserId }}</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
 		      	<li ng-if="main.loggedIn" class="navbar-text">{{ main.user.data.name }}</li>

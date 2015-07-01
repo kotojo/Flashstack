@@ -3,17 +3,17 @@ angular.module('mainCtrl', [])
 		var vm = this;
 		vm.currentUserId = $window.localStorage.getItem('currentUserId');
 		console.log(vm.currentUserId);
-		vm.randomVar = 1;
-		$rootScope.$watch(function() {
-			return Auth.currentUserId;
-		}, function(newValue) {
-      vm.currentUserId = newValue;
-		});
+		// $rootScope.$watch(function() {
+		// 	return Auth.currentUserId;
+		// }, function(newValue) {
+	 //      vm.currentUserId = newValue;
+		// });
 
 		vm.loggedIn = Auth.isLoggedIn();
 		$rootScope.$on('$routeChangeStart', function() {
 			vm.loggedIn = Auth.isLoggedIn();
 				// get user information on route change
+			console.log(Auth.getUser());
 			Auth.getUser()
 			.then(function(data) {
 				vm.user = data;
