@@ -18,3 +18,87 @@
   from { -moz-transform:rotate(0deg);}
   to   { -moz-transform:rotate(360deg);}
 }
+
+/*NAVBAR=======================================*/
+
+.navbar-inverse {
+	border-radius: 0px;
+	background-color: #34495E;
+	border: none;
+	font-family: OpenSans;
+}
+.navbar-inverse .navbar-brand {
+    color: #2980B9;
+    font-weight: 600;
+    font-size: 2em;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+    color: #3498DB;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #BDC3C7;
+    font-weight: 400;
+    font-size: 1.3em;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #ECF0F1;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #2980B9;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #2980B9;
+}
+.navbar-inverse .navbar-nav .navbar-right {
+
+}
+
+/*NAVBAR=======================================*/
+
+#wrapper {
+	/*background-color: #ECF0F1;*/
+	width: 95%;
+	height: 95%;
+	margin: 0 auto;
+	/*padding: 0 10%;*/
+}
+
+/*JUMBOTRON===================================*/
+
+.jumbotron {
+	background: rgba(0, 0, 0, .2);
+	padding: 70px 100px 100px 65px;
+	width: 70%;
+	margin: 0 auto;
+	color: #2980B9;
+}
+
+.jumbotron h1 {
+	font-family: OpenSans;
+	font-weight: 600;
+}
+
+.jumbotron label {
+	font-family: opensans;
+	font-weight: 400;
+	font-style: italic;
+}
+
+.sign_up {
+	font-weight: 400;
+	font-style: italic;
+	font-size: 1.3em;
+	color: 3498DB;
+	line-height: 1.3em;
+}
+
+/*USER-PROFILE===================================*/
+
+.userpage {
+	background: rgba(0, 0, 0, .2);
+	margin: 0 auto;
+	width: 100%;
+}

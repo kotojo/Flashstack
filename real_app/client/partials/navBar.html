@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+
+		      <a class="navbar-brand" href="/"><strong>FlashStack</strong></a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="myNavbar">
+		      
+		      <ul class="nav navbar-nav">
+		        <li><a ng-href="/users/{{ main.currentUserId }}">Profile</a></li>
+		        <li><a href="/deck">Decks</a></li>
+		        <!-- <li><a href="#">Current User: {{ main.currentUserId }}</a></li> -->
+		      </ul>
+
+		      <ul class="nav navbar-nav navbar-right">
+		      	<li ng-if="main.loggedIn" class="navbar-text">{{ main.user.data.name }}</li>
+		        <li ng-if="!main.loggedIn"><a href="/login"><span class="glyphicon glyphicon-user"></span> Login/Sign Up</a></li>
+		        <!-- <li ng-if="!main.loggedIn"><a href="/users/create"><span class="glyphicon glyphicon-user"></span> No Account? Sign Up</a></li> -->
+		        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Up</a></li> -->
+		        <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+		      </ul>
+
+		    </div>
+		  </div>
+		</nav>

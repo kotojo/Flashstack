@@ -6,7 +6,7 @@
 	<base href="/">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel = "stylesheet" href="/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300' rel='stylesheet' type='text/css'>
 	<!-- Libraries -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-route.js"></script>
@@ -25,40 +25,23 @@
 	<script src="app.js"></script>
 	<title></title>
 </head>
+
 <body ng-app="flashcardApp" ng-controller="mainController as main">
-<!-- Navbar -->
-<header>
 
-		<nav class="navbar navbar-inverse">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="/"><em>FlashStack</em></a>
-		    </div>
-		    <div class="collapse navbar-collapse" id="myNavbar">
-		      <ul class="nav navbar-nav">
-		        <li><a ng-href="/users/{{ main.currentUserId }}">Profile</a></li>
-		        <li><a href="/decks">Decks</a></li>
-		        <li><a href="#">Current User: {{ main.currentUserId }}</a></li>
-		      </ul>
-		      <ul class="nav navbar-nav navbar-right">
-		      	<li ng-if="main.loggedIn" class="navbar-text">{{ main.user.data.name }}</li>
-		        <li ng-if="!main.loggedIn"><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-		        <li ng-if="!main.loggedIn"><a href="/users/create"><span class="glyphicon glyphicon-user"></span> No Account? Sign Up</a></li>
-		        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Up</a></li> -->
-		        <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
-		      </ul>
-		    </div>
-		  </div>
-		</nav>
+	<div id = "wrapper">
 
-</header>
-<main>
-	<div ng-view></div>
-</main>
+		<!-- Navbar -->
+		<header ng-include = "'partials/navBar.html'"></header>
+		<!-- Navbar -->
+
+
+		<main>
+		  	<!-- <p ng-if = "main.loggedIn">CurrentUserId: {{ main.currentUserId }}</p> -->
+			<div ng-view></div>
+		</main>
+
+	</div>
+
+>>>>>>> master
 </body>
 </html>

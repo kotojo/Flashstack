@@ -1,7 +1,11 @@
-<h1>{{ user.user.username }}</h1>
-<h3>{{ user.user.name }}</h3>
-<h3>{{ user.user.age }}</h3>
-<h3>{{ user.user._id }}</h3>
-<ul>
-  <li ng-repeat="deck in user.mydecks">{{ deck.name }}</li>
-</ul>
+<div id="userpage">
+	<div id="userphoto"><img src="assets/img/userThumb.png"></div>
+	<div id="userstats">
+		<h2>{{ user.user.username }}</h2>
+		<p>{{ user.user.name }}, {{ user.user.age }}</p>
+		<p><em>I don't have a 9-5. I have a When i open my eyes to when i close them.</em></p>
+	</div>
+</div>
+<div id="deckrepeat">
+	<div class="decks" ng-repeat="deck in user.mydecks">{{ deck.name }}</div>
+</div>
