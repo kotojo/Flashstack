@@ -1,13 +1,12 @@
 angular.module('mainCtrl', [])
 	.controller('mainController', function($rootScope, $location, Auth){
 		var vm = this;
-		vm.currentUserId = Auth.currentUserId;
-
-		$rootScope.$watch(function() {
-			return Auth.currentUserId;
-		}, function(newValue) {
-      vm.currentUserId = newValue;
-		});
+		vm.currentUserId = sessionStorage.getItem('userId');
+		// $rootScope.$watch(function() {
+		// 	return Auth.currentUserId;
+		// }, function(newValue) {
+  //     		vm.currentUserId = newValue;
+		// });
 
 		vm.loggedIn = Auth.isLoggedIn();
 		$rootScope.$on('$routeChangeStart', function() {
@@ -26,7 +25,8 @@ angular.module('mainCtrl', [])
 			.login(vm.loginData.username, vm.loginData.password)
 			.success(function(data) {
 				vm.processing = false;
-				vm.currentUserId = Auth.currentUserId;
+				sessionStorage.setItem('userId', Auth.currentUserId);
+				vm.currentUserId = sessionStorage.getItem('userId');
 				console.log('currentUserId: ' + vm.currentUserId);
 				// if a user successfully logs in, redirect to users page
 				if (data.success)
@@ -37,7 +37,8 @@ angular.module('mainCtrl', [])
 		};
 		vm.doLogout = function() {
 			Auth.logout();
-			vm.currentUserId = Auth.currentUserId;
+			sessionStorage.setItem('userId', null)
+			vm.currentUserId = sessionStorage.getItem('userId');
 			// reset all user info
 			vm.user = {};
 			$location.path('/login');

@@ -1,2 +1,7 @@
-<h1>We made it!</h1>
-<pre>{{ user.user | json }}</pre>
+<h1>{{ user.user.username }}</h1>
+<h3>{{ user.user.name }}</h3>
+<h3>{{ user.user.age }}</h3>
+<h3>{{ user.user._id }}</h3>
+<ul>
+  <li ng-repeat="deck in user.mydecks">{{ deck.name }}</li>
+</ul>

@@ -1,5 +1,5 @@
   //start module and inject the service
-angular.module('userCtrl', ['userService'])
+angular.module('userCtrl', ['userService', 'deckService'])
 
 //user controller for main page and injecting factory
 .controller('userController', function(User) {
@@ -20,6 +20,7 @@ angular.module('userCtrl', ['userService'])
       vm.users = data;
     });
 
+
   vm.deleteUser = function(id) {
     vm.processing = true;
     //pass in user id as param
@@ -35,7 +36,7 @@ angular.module('userCtrl', ['userService'])
       });
   };
 })
-.controller('userShowController', function(User, $routeParams) {
+.controller('userShowController', function(User, Deck, $routeParams) {
 
   var vm = this;
 
@@ -43,6 +44,27 @@ angular.module('userCtrl', ['userService'])
     .success(function(data) {
       vm.user = data;
   });
+
+  //need user to be able to access decks
+  Deck.all()
+    .success(function(data) {
+
+      //remove processing when we get users
+      vm.processing = false;
+
+      //bind users to vm when we get them
+      vm.decks = data;
+    }).then(function(){
+      vm.mydecks = [];
+
+      for (i=0; i<vm.decks.length; i++) {
+        if (vm.decks[i].userId === $routeParams.user_id) {
+          vm.mydecks.push(vm.decks[i]);
+        };
+      };
+    });
+
+  // console.log(vm.deck);
 
 })
 .controller('userCreateController', function(User) {
