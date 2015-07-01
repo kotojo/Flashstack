@@ -4,6 +4,7 @@ var path = require('path'); // Module that provides helper function to handle pa
 var bodyParser = require('body-parser');// Module that help parse the body of the request as json
 //
 var app = express(); // Create a server/app  object
+var middlewares = require('./api/middlewares');
 //-----------------------------------------------------------------------------------
 // app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
@@ -11,8 +12,12 @@ app.use(bodyParser.json());
 
 // Main routes
 app.use('/api', require('./api/routes'));
-
-
+//
+app.post('/authenticate', middlewares.generateToken);
+//
+app.get('/me', function(req, res){
+	res.send(req.decoded);
+});
 // app.use:  Mount the middleware function to the path. Default to '/'
 // Note: if there is an index.html file, it will be bounded directly to '/' (the home path)
 //--------------------------------------------------------------------------------
