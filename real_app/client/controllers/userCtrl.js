@@ -59,7 +59,7 @@ angular.module('userCtrl', ['userService'])
     //clear message
     vm.message = '';
 
-    //use User service create method
+    //User service create method
     User.create(vm.userData)
       .success(function(data) {
         vm.processing = false;

@@ -85,6 +85,7 @@ exported.validateToken = function(req, res, next){
 	var jwt = require('jsonwebtoken');
 	var secret = 'something';
 	var token = req.body.token || req.query.token || req.headers['x-access-token'];
+	console.log(req.headers);
 	if (token){
 		jwt.verify(token, secret, function(err, decoded){
 			if (err) {

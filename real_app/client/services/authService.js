@@ -70,7 +70,7 @@ angular.module('authService', [])
 // ===================================================
 // application configuration to integrate token into requests
 // ===================================================
-	.factory('AuthInterceptor', function($q, $location, AuthToken) {
+	.factory('AuthInterceptor', function($window, $q, $location, AuthToken) {
 		var interceptorFactory = {};
 		// this will happen on all HTTP requests
 		interceptorFactory.request = function(config) {
@@ -79,6 +79,8 @@ angular.module('authService', [])
 		// if the token exists, add it to the header as x-access-token
 		if (token)
 		config.headers['x-access-token'] = token;
+		$window.localStorage['token'] = config.headers['x-access-token'];
+		// console.log(config);
 		return config;
 		};
 		// happens on response errors

@@ -2,23 +2,23 @@
 angular.module('deckCtrl', ['deckService'])
 
 //deck controller for main page and injecting factory
-.controller('deckController', function(deck) {
+.controller('deckController', function(Deck) {
 
   var vm = this;
 
-  vm.currentUserId = Auth.currentUserId;
+  // vm.currentUserId = Auth.currentUserId;
 
-  $rootScope.$watch(function() {
-    return Auth.currentUserId;
-  }, function(newValue) {
-    vm.currentUserId = newValue;
-  });
+  // $rootScope.$watch(function() {
+  //   return Auth.currentUserId;
+  // }, function(newValue) {
+  //   vm.currentUserId = newValue;
+  // });
 
   //processing variable to show loading things
   vm.processing = true;
 
   //grab all decks
-  deck.all()
+  Deck.all()
     .success(function(data) {
 
       //remove processing when we get decks
@@ -28,14 +28,14 @@ angular.module('deckCtrl', ['deckService'])
       vm.decks = data;
     });
 
-  vm.deletedeck = function(id) {
+  vm.deleteDeck = function(id) {
     vm.processing = true;
     //pass in deck id as param
-    deck.delete(id)
+    Deck.delete(id)
       .success(function(data) {
 
         //get all decks and refresh list
-        deck.all()
+        Deck.all()
           .success(function(data) {
             vm.processing = false;
             vm.decks = data;
@@ -43,17 +43,17 @@ angular.module('deckCtrl', ['deckService'])
       });
   };
 })
-.controller('deckShowController', function(deck, $routeParams) {
+.controller('deckShowController', function(Deck, $routeParams) {
 
   var vm = this;
 
-  deck.get($routeParams.deck_id)
+  Deck.get($routeParams.deck_id)
     .success(function(data) {
       vm.deck = data;
   });
 
 })
-.controller('deckCreateController', function(deck) {
+.controller('deckCreateController', function(Deck) {
 
   var vm = this;
 
@@ -61,41 +61,41 @@ angular.module('deckCtrl', ['deckService'])
   vm.type = 'create';
 
   //create a deck
-  vm.savedeck = function() {
+  vm.saveDeck = function() {
     vm.processing = true;
 
     //clear message
     vm.message = '';
 
-    //deckdeck service create method
-    deck.create(vm.deckData)
+    //Deck service create method
+    Deck.create(vm.deckData)
       .success(function(data) {
         vm.processing = false;
         //clear the form
         vm.deckData = {};
-        vm.message = 'deck created successfully!';
+        vm.message = 'Deck created successfully!';
       });
   };
 })
-.controller('deckEditController', function(deck, $routeParams) {
+.controller('deckEditController', function(Deck, $routeParams) {
 
   var vm = this;
 
   vm.type = 'edit';
 
   //get the deck data for the deck we want to edit using routeparams
-  deck.get($routeParams.deck_id)
+  Deck.get($routeParams.deck_id)
     .success(function(data) {
       vm.deckData = data;
   });
 
   //save deck
-  vm.savedeck = function() {
+  vm.saveDeck = function() {
     vm.processing = true;
     vm.message = '';
 
   //call the update function
-  deck.update($routeParams.deck_id, vm.deckData)
+  Deck.update($routeParams.deck_id, vm.deckData)
     .success(function(data) {
       vm.processing = false;
 
