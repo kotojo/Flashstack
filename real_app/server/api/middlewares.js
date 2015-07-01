@@ -69,7 +69,7 @@ exported.generateToken = function(req, res){
 					name: user.name,
 					username: user.username
 				}, secret, {
-					expiresInMinutes: 2
+					expiresInMinutes: 60
 				});
 				res.json({
 					success: true,
