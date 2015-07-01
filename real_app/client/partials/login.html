@@ -16,15 +16,19 @@
 				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 				{{ login.error }}
 			</div>
+			<!-- SIGN UP -->
+			<a class="sign_up" href="/users/create">No account? Sign Up!</a>
+			<br>
+			<br>
 			<!-- LOGIN BUTTON -->
 			<button type="submit" class="btn btn-primary">
 				<span ng-if="!login.processing">Login</span>
 				<span ng-if="login.processing" class="spinner"><span class="glyphicon glyphicon-repeat"></span></span>
 			</button>
-			<button type="submit" class="btn btn-primary">
+			<!-- <button type="submit" class="btn btn-primary">
 				<span ng-if="!login.processing">Sign Up</span>
 				<span ng-if="login.processing" class="spinner"><span class="glyphicon glyphicon-repeat"></span></span>
-			</button>
+			</button> -->
 		</form>
 	</div>
 </div>

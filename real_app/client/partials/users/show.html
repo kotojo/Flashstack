@@ -1,2 +1,17 @@
-<h1>We made it!</h1>
-<pre>{{ user.user | json }}</pre>
+<!-- <div class="userpage">
+	<h1>{{ user.user.name }}</h1>
+
+	<pre>{{ user.user | json }}</pre>
+	<h1>{{ user.user._id}} </h1>
+</div> -->
+<div id="userpage">
+	<div id="userphoto"><img src="assets/img/userThumb.png"></div>	
+	<div id="userstats">
+		<h2>{{ user.user.username }}</h2>
+		<p>{{ user.user.name }}, {{ user.user.age }}</p>
+		<p><em>I don't have a 9-5. I have a When i open my eyes to when i close them.</em></p>
+	</div>
+</div>
+<div id="deckrepeat">
+	<div class="decks"></div>
+</div>
