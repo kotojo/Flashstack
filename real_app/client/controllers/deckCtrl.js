@@ -67,7 +67,7 @@ angular.module('deckCtrl', ['deckService'])
     //clear message
     vm.message = '';
 
-    //deckdeck service create method
+    console.log(vm.deckData);
 
     //Deck service create method
 
