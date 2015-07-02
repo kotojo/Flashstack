@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
 	<!-- Libraries -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-route.js"></script>
@@ -28,12 +29,11 @@
 
 <body ng-app="flashcardApp" ng-controller="mainController as main">
 
+	<!-- Navbar -->
+	<header ng-include="'partials/navBar.html'"></header>
+	<!-- Navbar -->
+
 	<div id = "wrapper">
-
-		<!-- Navbar -->
-		<header ng-include = "'partials/navBar.html'"></header>
-		<!-- Navbar -->
-
 
 		<main>
 		  	<!-- <p ng-if = "main.loggedIn">CurrentUserId: {{ main.currentUserId }}</p> -->
@@ -42,6 +42,5 @@
 
 	</div>
 
->>>>>>> master
 </body>
 </html>
