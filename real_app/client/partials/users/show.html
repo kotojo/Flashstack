@@ -1,7 +1,7 @@
 <div class="userwrap">
 	<div class="usershow row">
 		<!-- <div class="row"> -->
-			<div class="userphoto col-lg-4 col-lg-offset-2">
+			<div class="userphoto col-lg-4">
 				<img class="img-thumbnail img-responsive" alt="Profile Photo" src="assets/img/userThumb.png">
 			</div>
 		<!-- </div> -->
@@ -17,9 +17,15 @@
 
 
 	<div class="runner">
-		
-	</div>
 
+		<div class="decktabs">
+		    <ul class="nav nav-tabs">
+		        <li class="active"><a href="#">My Decks</a></li>
+		        <li><a href="#">Other Decks</a></li>
+		    </ul>
+		</div>
+
+	</div>
 
 	<div class="deckrepeat">
 		<div class="decks" ng-repeat="deck in user.mydecks">{{ deck.name }}</div>

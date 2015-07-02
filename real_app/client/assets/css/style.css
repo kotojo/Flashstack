@@ -108,8 +108,7 @@ body {
 	margin: 0 auto;
 }
 .usershow {
-	/*box-shadow: inset 0 0 5em 1em rgba(0, 0, 0, 0.1);
-	background: #2980B9;*/
+	/*box-shadow: inset 0 0 5em 1em rgba(0, 0, 0, 0.1);*/
 	padding: 50px;
 	margin: 0 auto;
 	width: 100%;
@@ -140,9 +139,14 @@ body {
 	background-image: url('../img/geometry2.png');
 	background-repeat: repeat;
 	height: 25em;
+	position: relative;
+}
+.decktabs {
+	clear: both;
+	position: absolute;
+	bottom: 0;
 }
 .deckrepeat {
-
 }
 
 
