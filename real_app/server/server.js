@@ -57,7 +57,7 @@ app.post('/api/photo', function(req, res) {
                             console.log(JSON.stringify(data));
                           });
 
-    res.end("File uploaded.");
+    res.redirect("/users/" + Object.keys(req.files)[0]);
   }
 });
 //
