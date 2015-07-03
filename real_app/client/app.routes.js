@@ -40,7 +40,7 @@ angular.module('app.routes', ['ngRoute'])
 			controllerAs: 'deck'
 		})
 		.when('/decks/edit/:deck_id', {
-			templateUrl: 'partials/decks/single.html',
+			templateUrl: 'partials/decks/update.html',
 			controller: 'deckEditController',
 			controllerAs: 'deck'
 		})

@@ -1,2 +1,35 @@
 <h1>{{ deck.deck.name }}</h1>
 <p>{{ deck.deck.description }}</p>
+<ul ng-repeat="card in deck.Cards">
+  <li>{{ card.front }}</li>
+  <li>{{ card.back}}</li>
+</ul>
+<div class="row col-sm-6 col-sm-offset-3">
+  <div class="jumbotron">
+    <h1>Create Card</h1>
+    <form class="form-horizontal" ng-submit="deck.saveCard()">
+      <div class="form-group">
+        <label>Front</label>
+        <input type="text" class="form-control" ng-model="deck.cardData.front">
+      </div>
+      <div class="form-group">
+        <label>Back</label>
+        <input type="text" class="form-control" ng-model="deck.cardData.back">
+      </div>
+      <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <button type="submit"
+                class="btn btn-success btn-large btn-block">Create Card</button>
+      </div>
+      </div>
+    </form>
+    <div class="row" ng-show="deck.cardMessage">
+      <div class="col-sm-6 col-sm-offset-2">
+        <div class="alert alert-info">
+          {{ deck.cardMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

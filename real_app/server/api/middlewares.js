@@ -3,7 +3,6 @@ var exported = {};
 
 exported.indexFunction = function(model) {
 	return function(req, res){
-		console.log('indexed');
 		model.find({}, function(err, data){
 			if (err) return res.send(500, err);
 			return res.status(200).json(data);

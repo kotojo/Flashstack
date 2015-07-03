@@ -1,5 +1,5 @@
   //start module and inject the service
-angular.module('deckCtrl', ['deckService'])
+angular.module('deckCtrl', ['deckService', 'cardService'])
 
 //deck controller for main page and injecting factory
 .controller('deckController', function(Deck) {
@@ -43,14 +43,68 @@ angular.module('deckCtrl', ['deckService'])
       });
   };
 })
-.controller('deckShowController', function(Deck, $routeParams) {
+.controller('deckShowController', function(Deck, Card, $routeParams) {
 
   var vm = this;
 
   Deck.get($routeParams.deck_id)
     .success(function(data) {
       vm.deck = data;
+  }).then(function(){
+    Card.all()
+      .success(function(data) {
+        vm.allCards = data;
+    }).then(function(){
+        vm.Cards = [];
+
+        for(i = 0; i < vm.deck.cards.length; i++) {
+          for(j = 0; j < vm.allCards.length; j++) {
+            if(vm.allCards[j]._id == vm.deck.cards[i]) {
+              vm.Cards.push(vm.allCards[j]);
+            };
+          };
+        };
+    });
   });
+
+  vm.saveCard = function() {
+    vm.cardMessage = '';
+
+    Card.create(vm.cardData)
+      .success(function(data) {
+        vm.deck.cards.push(data._id);
+        //do deck update herex
+
+        Deck.update($routeParams.deck_id, vm.deck)
+          .success(function(data) {
+            vm.processing = false;
+
+          });
+
+        vm.cardData = {};
+        vm.cardMessage = 'Card created successfully';
+    }).then(function(){
+      Deck.get($routeParams.deck_id)
+        .success(function(data) {
+        vm.deck = data;
+        }).then(function(){
+          Card.all()
+            .success(function(data){
+              vm.allCards = data;
+            }).then(function(){
+              vm.Cards = [];
+
+              for(i = 0; i < vm.deck.cards.length; i++) {
+                for(j = 0; j < vm.allCards.length; j++) {
+                  if(vm.allCards[j]._id == vm.deck.cards[i]) {
+                    vm.Cards.push(vm.allCards[j]);
+                  };
+                };
+              };
+            });
+        });
+      });
+  };
 
 })
 .controller('deckCreateController', function(Deck) {
@@ -82,6 +136,8 @@ angular.module('deckCtrl', ['deckService'])
 })
 .controller('deckEditController', function(Deck, $routeParams) {
 
+  console.log("I'm here! deckEditController!")
+
   var vm = this;
 
   vm.type = 'edit';
@@ -96,6 +152,7 @@ angular.module('deckCtrl', ['deckService'])
   vm.saveDeck = function() {
     vm.processing = true;
     vm.message = '';
+
 
   //call the update function
   Deck.update($routeParams.deck_id, vm.deckData)
