@@ -1,11 +1,47 @@
-<div id="userpage">
-	<div id="userphoto"><img src="assets/img/userThumb.png"></div>
-	<div id="userstats">
-		<h2>{{ user.user.username }}</h2>
-		<p>{{ user.user.name }}, {{ user.user.age }}</p>
-		<p><em>I don't have a 9-5. I have a When i open my eyes to when i close them.</em></p>
+<div class="pagewrap">
+
+	<!-- USER PHOTO/INFO -->
+	<div class="usershow row">
+			<div class="userphoto col-lg-4">
+				<img class="img-thumbnail img-responsive" alt="Profile Photo" src="assets/img/userThumb.png">
+			</div>
+			<br>
+			<div class="userstats col-lg-4">
+				<p class="username">{{ user.user.username | uppercase }}</p>
+				<p class="userinfo">Age: {{ user.user.age }}</p>
+				<p class="userinfo"><em>"I don't have a 9 - 5. I have a when I open my eyes to when I close them."</em></p>
+			</div>
 	</div>
-</div>
-<div id="deckrepeat">
-	<div class="decks" ng-repeat="deck in user.mydecks">{{ deck.name }}</div>
+
+	<!-- TABS -->
+
+	<div class="runner">
+		<div class="decktabs">
+		    <ul class="nav nav-tabs">
+		        <li class="active"><a data-toggle="tab" href="#mydeck">My Decks</a></li>
+		        <li><a data-toggle="tab" href="#otherdeck">Other Decks</a></li>
+		    </ul>
+		</div>
+	</div>
+
+	<div class="tab-content">
+    	<div id="mydeck" class="tab-pane fade in active">
+	      <h3>HOME</h3>
+	      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    	</div>
+
+	    <div id="otherdeck" class="tab-pane fade">
+	      <h3>Menu 1</h3>
+	      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	    </div>
+    </div>
+
+	<!-- DECK REPEATS -->
+	<div class="deckrepeat" ng-show="deck.decks">
+		<div class="decks" ng-repeat="thing in deck.decks">
+		{{ thing.name }}
+		{{ thing.description }}
+		{{ thing.cards.count }}</div>
+	</div>
+
 </div>
