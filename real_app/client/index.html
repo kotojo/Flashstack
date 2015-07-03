@@ -28,19 +28,19 @@
 </head>
 
 <body ng-app="flashcardApp" ng-controller="mainController as main">
+	<!-- <div class="blueback" ng-if="!main.loggedIn"> -->
+		<!-- Navbar -->
+		<header ng-if="main.loggedIn" ng-include="'partials/navBar.html'"></header>
+		<!-- Navbar -->
 
-	<!-- Navbar -->
-	<header ng-include="'partials/navBar.html'"></header>
-	<!-- Navbar -->
+		<div id = "wrapper">
 
-	<div id = "wrapper">
+			<main>
+			  	<!-- <p ng-if = "main.loggedIn">CurrentUserId: {{ main.currentUserId }}</p> -->
+				<div ng-view></div>
+			</main>
 
-		<main>
-		  	<!-- <p ng-if = "main.loggedIn">CurrentUserId: {{ main.currentUserId }}</p> -->
-			<div ng-view></div>
-		</main>
-
-	</div>
-
+		</div>
+	<!-- </div> -->
 </body>
 </html>

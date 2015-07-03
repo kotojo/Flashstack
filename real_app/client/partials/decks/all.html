@@ -1,38 +1,43 @@
-<div class="page-header">
-  <h1>
-    Decks
+<div class="pagewrap" ng-show="deck.decks">
+
+    <!--Loading Message-->
+    <!-- <div class="jumbotron text-center" ng-show="deck.processing">
+      <span class="glyphicon glyphicon-repeat spinner"></span>
+      <p>Loading Users...</p>
+    </div> -->
+
+    <!-- Start Placing Decks -->
+
+  <div class="deckwrap">
+    <div class="deckphoto">
+      <img src="../assets/img/sampleDeckImage.png">
+    </div>
+      <hr>
+    <div class="deckinfo">
+      <p class="deckname">{{ thing.name }}</p>
+      <p class="deckcount"><em>{{ thing.card.count }}</em></p>
+      <p class="deckdescrip">Know your best and favourite learning medium. Then use it and be in it. My favourite way to learn a language, and as a result, the culture itself, is to be immersed in the country where the language originates. Mandarin is primarily spoken in mainland China as well as Taiwan.</p>
+    </div>
+    <a class="glyphicon glyphicon-eye-open" href="/decks/{{ thing._id }}"></a>
+    <a href="/decks/edit/{{ "></a>
+    <a class="glyphicon glyphicon-trash"href="#" ng-click="deck.deleteDeck(thing._id)"></a>
+  </div>
+
+
+
+    <!-- <div ng-repeat="thing in deck.decks">
+      <h1>{{ thing.name }}</h1>
+      <p>{{ thing.description }}</p>
+      <p>{{ thing.cards.count }}</p>
+      
+        <a ng-href="/decks/{{ thing._id }}">View</a>
+        <a ng-href="/decks/edit/{{ thing._id }}">Edit</a>
+        <a href="#" ng-click="deck.deleteDeck(thing._id)">Delete</a>
+      
+    </div>
+
     <a href="/decks/create" class="btn btn-default">
       <span class="glyphicon glyphicon-plus"></span>
     </a>
-  </h1>
+    <h3>Make New Deck</h3> -->
 </div>
-
-<!--Loading Message-->
-<div class="jumbotron text-center" ng-show="deck.processing">
-  <span class="glyphicon glyphicon-repeat spinner"></span>
-  <p>Loading Users...</p>
-</div>
-<table class="table table-bordered table-striped" ng-show="deck.decks">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Cards</th>
-      <th class="col-sm-2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="thing in deck.decks">
-      <td>{{ thing.name }}</td>
-      <td>{{ thing.description }}</td>
-      <td>{{ thing.cards }}</td>
-      <td class="col-sm-2">
-        <a ng-href="/decks/{{ thing._id }}" class="btn btn-primary">View</a>
-        <a ng-href="/decks/edit/{{ thing._id }}" class="btn btn-danger">Edit</a>
-        <a href="#"
-          ng-click="deck.deleteDeck(thing._id)"
-          class="btn btn-primary">Delete</a>
-      </td>
-    </tr>
-  </tbody>
-</table>

@@ -24,6 +24,14 @@ body {
 	background-size: cover;
 }
 
+/*PRE LOGGED IN PAGE===========================*/
+
+/*.blueback {
+	background-image: url('../img/geometry2.png');
+	background-repeat: no-repeat;
+	margin: 0 auto;
+	width: 100%;
+}*/
 /*NAVBAR=======================================*/
 
 .navbar-inverse {
@@ -63,7 +71,7 @@ body {
 
 }
 
-/*NAVBAR=======================================*/
+/*WRAPPER======================================*/
 
 #wrapper {
 	/*background-color: #ECF0F1;*/
@@ -73,6 +81,10 @@ body {
 	/*padding: 0 10%;*/
 }
 
+.pagewrap {
+	width: 75%;
+	margin: 0 auto;
+}
 /*JUMBOTRON===================================*/
 
 .jumbotron {
@@ -103,10 +115,7 @@ body {
 }
 
 /*USER-PROFILE===================================*/
-.userwrap {
-	width: 75%;
-	margin: 0 auto;
-}
+
 .usershow {
 	/*box-shadow: inset 0 0 5em 1em rgba(0, 0, 0, 0.1);*/
 	padding: 50px;
@@ -149,9 +158,17 @@ body {
 .deckrepeat {
 }
 
+/*DECK PAGE==================================*/
 
+.deckwrap {
+	background-color: whitesmoke;
+	padding: 7px;
+	width: 300px;
+}
 
-
+.deckphoto {
+	margin: 0 auto;
+}
 
 
 
