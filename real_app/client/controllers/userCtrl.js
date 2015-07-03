@@ -38,6 +38,8 @@ angular.module('userCtrl', ['userService', 'deckService'])
 })
 .controller('userShowController', function(User, Deck, $routeParams) {
 
+  console.log('userShowCtrl is alive');
+
   var vm = this;
 
   User.get($routeParams.user_id)

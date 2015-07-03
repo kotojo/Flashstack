@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<!-- For angular routing -->
 	<base href="/">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
@@ -17,10 +17,12 @@
 	<script src="controllers/mainCtrl.js"></script>
 	<script src="controllers/userCtrl.js"></script>
 	<script src="controllers/deckCtrl.js"></script>
+	<script src="controllers/cardCtrl.js"></script>
 	<!-- Services -->
 	<script src="services/authService.js"></script>
 	<script src="services/userService.js"></script>
 	<script src="services/deckService.js"></script>
+	<script src="services/cardService.js"></script>
 	<!-- main file -->
 	<script src="app.routes.js"></script>
 	<script src="app.js"></script>
@@ -28,7 +30,9 @@
 </head>
 
 <body ng-app="flashcardApp" ng-controller="mainController as main">
-	<!-- <div class="blueback" ng-if="!main.loggedIn"> -->
+
+	<div id = "wrapper">
+
 		<!-- Navbar -->
 		<header ng-if="main.loggedIn" ng-include="'partials/navBar.html'"></header>
 		<!-- Navbar -->
@@ -41,6 +45,6 @@
 			</main>
 
 		</div>
-	<!-- </div> -->
+
 </body>
 </html>

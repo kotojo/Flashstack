@@ -2,7 +2,12 @@
   <div class="jumbotron">
     <h1 ng-if="deck.type == 'create'">Create Deck</h1>
     <h1 ng-if="deck.type == 'edit'">Edit Deck</h1>
-    <form class="form-horizontal" ng-submit="deck.saveDeck()">
+    <form class="form-horizontal"
+          ng-submit="deck.saveDeck()"
+          id        =  "uploadForm"
+          enctype   =  "multipart/form-data"
+          action    =  "/api/photo"
+          method    =  "post">
       <!-- USERNAME INPUT -->
       <div class="form-group">
         <label>Name</label>
@@ -13,9 +18,14 @@
         <input type="text" class="form-control" ng-model="deck.deckData.description">
       </div>
       <div ng-hide="true" class="form-group">
+        <label>Pic</label>
+        <input type="text" class="form-control" ng-model="deck.deckData.pic" ng-init="placeholder">
+      </div>
+      <div ng-hide="true" class="form-group">
         <label>User_id</label>
         <input type="text" class="form-control" ng-model="deck.deckData.userId" ng-init="deck.deckData.userId = main.currentUserId">
       </div>
+      <input type="file" name="{{main.currentUserId}}"/>
       <div class="form-group">
       <div class="col-sm-offset-2 col-sm-6">
         <button type="submit"
