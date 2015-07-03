@@ -67,6 +67,30 @@ angular.module('deckCtrl', ['deckService', 'cardService'])
     });
   });
 
+  vm.deleteCard = function(id) {
+    vm.processing = true;
+    //pass in card id as param
+    Card.delete(id)
+      .success(function(data) {
+
+        //get all cards and refresh list
+        Card.all()
+            .success(function(data){
+              vm.allCards = data;
+            }).then(function(){
+              vm.Cards = [];
+
+              for(i = 0; i < vm.deck.cards.length; i++) {
+                for(j = 0; j < vm.allCards.length; j++) {
+                  if(vm.allCards[j]._id == vm.deck.cards[i]) {
+                    vm.Cards.push(vm.allCards[j]);
+                  };
+                };
+              };
+            });
+      });
+  };
+
   vm.saveCard = function() {
     vm.cardMessage = '';
 

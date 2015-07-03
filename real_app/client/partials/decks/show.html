@@ -3,6 +3,9 @@
 <ul ng-repeat="card in deck.Cards">
   <li>{{ card.front }}</li>
   <li>{{ card.back}}</li>
+  <li><a href="#"
+     ng-click="deck.deleteCard(card._id)"
+     class="btn btn-primary"></a></li>
 </ul>
 <div class="row col-sm-6 col-sm-offset-3">
   <div class="jumbotron">
