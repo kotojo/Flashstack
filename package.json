@@ -2,9 +2,9 @@
   "name": "flash_card_app",
   "version": "1.0.0",
   "description": "project 3 flash card app",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,8 @@
     "express": "^4.13.0",
     "jsonwebtoken": "^5.0.2",
     "mongoose": "^4.0.6",
-    "path": "^0.11.14"
+    "path": "^0.11.14",
+    "multer": "^0.1.8"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -34,6 +35,6 @@
     "grunt-contrib-uglify": "^0.9.1"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": "0.12.2"
   }
 }
