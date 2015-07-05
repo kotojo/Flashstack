@@ -20,9 +20,11 @@
       <div class="form-group">
         <label>Password</label>
         <input type="password" class="form-control" ng-model="user.userData.password">
-      </div>
-      <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-6">
+        <br>
+        <a class="sign_up" href="/login">Already have an accout? Go Login!</a>
+        <br>
+        <br>
+      
         <button type="submit"
                 class="btn btn-primary"
                 ng-if="user.type == 'create'">Create User</button>
@@ -30,7 +32,7 @@
                 class="btn btn-primary"
                 ng-if="user.type == 'edit'">Update User</button>
       </div>
-      </div>
+
     </form>
     <div class="row" ng-show="user.message">
       <div class="col-sm-6 col-sm-offset-2">
