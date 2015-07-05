@@ -40,6 +40,7 @@ app.get('/me', function(req, res){
 });
 // Hook to mongodb database
 var mongoose = require('mongoose');
+// mongoose.connect('mongodb://clublyfe:ohnoes31@ds061621.mongolab.com:61621/flashcard_app');
 mongoose.connect('mongodb://localhost/flash_card_app');
 // Populate datas:
 var Models = require('./populate_data'); // Automatically find and get the module exported from index.js file from models folder.
@@ -50,7 +51,7 @@ app.post('/api/photo', function(req, res) {
   if(done==true){
     console.log(req.files);
 
-    Deck.findOneAndUpdate({"userId": Object.keys(req.files)[0]},
+    Deck.findOneAndUpdate({"pic": Object.keys(req.files)[0]},
                           { "pic": req.files[Object.keys(req.files)[0]]["path"].substring(10) },
                           function(err, data){
                             if (err) console.log(err);
