@@ -2,6 +2,7 @@
 var mongoose = require('mongoose'); // Get mongoose ORM module
 var bcrypt = require('bcrypt-nodejs');
 var userSchema = new mongoose.Schema({
+ userpic: String, 	 	
  name: String,
  age: Number,
  username: {type: String, required: true, index: {unique: true}},
