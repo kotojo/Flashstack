@@ -7,23 +7,28 @@
     </div> -->
 
     <!-- Start Placing Decks -->
-    <div class="deckpage row row-centered col-lg-4 col-md-6" ng-repeat="thing in deck.decks">
-      <div class="deckwrap">
-        <div class="deckphoto">
-          <img ng-src="{{ thing.pic }}">
-        </div>
-          <hr>
-        <div class="deckinfo">
-          <p class="deckname"><h3>{{ thing.name | uppercase}}</h3></p>
-          <p class="deckcount"><em>{{ thing.cards.length}} cards</em></p>
-          <p class="deckdescrip">{{ thing.description }}</p>
-        </div>
-        <a class="glyphicon glyphicon-eye-open" href="/decks/{{ thing._id }}"></a>
-        <a href="/decks/edit/{{ "></a>
-        <a class="glyphicon glyphicon-trash"href="#" ng-click="deck.deleteDeck(thing._id)"></a>
+  <div class="deckpage row col-lg-4 col-md-6" ng-repeat="thing in deck.decks">
+    <div class="deckwrap">
+      <div class="deckphoto">
+        <img ng-src="{{ thing.pic }}">
       </div>
+        <hr>
+      <div class="deckinfo">
+        <p class="deckname"><h3>{{ thing.name | uppercase}}</h3></p>
+        <p class="deckcount"><em>{{ thing.cards.length}} cards</em></p>
+        <p class="deckdescrip">{{ thing.description }}</p>
+      </div>
+      <a class="glyphicon glyphicon-eye-open" href="/decks/{{ thing._id }}"></a>
+      <a href="/decks/edit/{{ "></a>
+      <a class="glyphicon glyphicon-trash"href="#" ng-click="deck.deleteDeck(thing._id)"></a>
     </div>
+    <hr>
+  </div>
 
+    
+
+
+  
 
 
     <!-- <div ng-repeat="thing in deck.decks">
