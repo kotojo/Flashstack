@@ -71,9 +71,16 @@ app.get('*', function(req, res) {
 // Main routes
 //
 //
+config = {
+  ip:       process.env.OPENSHIFT_NODEJS_IP ||
+            process.env.IP ||
+            undefined,
 
-var server = app.listen(function () {
-  var host = server.address().address;
-  var port = process.env.PORT || 9000;
+  port:     process.env.OPENSHIFT_NODEJS_PORT ||
+            process.env.PORT ||
+            6969
+};
+
+var server = app.listen(config.port, config.ip, function () {
   console.log('Club life happening at http://%s:%s', host, port);
 }); // Starts the server
