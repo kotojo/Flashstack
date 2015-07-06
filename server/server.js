@@ -82,5 +82,5 @@ config = {
 };
 
 var server = app.listen(config.port, config.ip, function () {
-  console.log('Club life happening at http://%s:%s', host, port);
+  console.log('Club life happening at http://%s', config.port);
 }); // Starts the server
