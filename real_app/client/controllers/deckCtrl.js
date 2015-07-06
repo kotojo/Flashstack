@@ -45,7 +45,8 @@ angular.module('deckCtrl', ['deckService', 'cardService', 'ngAnimate'])
 })
 .controller('deckShowController', function(Deck, Card, $routeParams) {
 
-  var vm = this;
+var vm = this;
+
 
   Deck.get($routeParams.deck_id)
     .success(function(data) {

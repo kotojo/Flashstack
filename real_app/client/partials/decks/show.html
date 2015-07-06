@@ -10,7 +10,7 @@
       <p><em>{{ deck.deck.cards.length}} cards</em></p>
       <p>{{ deck.deck.description }}</p>
 
-      <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/>
+      <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"> <strong>Create a New Card</strong><br/>
 
       <div ng-show="checked">
         <div class="row col-sm-2 col-md-4 col-lg-6">
@@ -51,10 +51,10 @@
         <a href="#" class="glyphicon glyphicon-share-alt" ng-click="show = !show"></a>
       </div>
 
-      <div class="cardFront" ng-show="show">
+      <div class="cardFront" ng-hide="show">
         {{ card.front | uppercase}}
       </div>
-      <div class="cardBack" ng-hide="show">
+      <div class="cardBack" ng-show="show">
         {{ card.back | uppercase}}
       </div>
       <div class="cardBottom">
@@ -71,6 +71,15 @@
         </div>
       </div>
     </div>
+</div>
+
+
+
+
+
+
+
+
 
 
 

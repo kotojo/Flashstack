@@ -37,15 +37,11 @@
 		<!-- Navbar -->
 		<header ng-if="main.loggedIn" ng-include="'partials/navBar.html'"></header>
 		<!-- Navbar -->
-
-		<div id = "wrapper">
-
-			<main>
-			  	<!-- <p ng-if = "main.loggedIn">CurrentUserId: {{ main.currentUserId }}</p> -->
-				<div ng-view></div>
-			</main>
-
-		</div>
+	
+	  	<!-- <p ng-if = "main.loggedIn">CurrentUserId: {{ main.currentUserId }}</p> -->
+		<div id="view" ng-view></div>
+			
+	</div>
 
 </body>
 </html>
