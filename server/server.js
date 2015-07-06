@@ -40,8 +40,8 @@ app.get('/me', function(req, res){
 });
 // Hook to mongodb database
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb://clublyfe:ohnoes31@ds061621.mongolab.com:61621/flashcard_app');
-mongoose.connect('mongodb://localhost/flash_card_app');
+mongoose.connect('mongodb://clublyfe:ohnoes31@ds061621.mongolab.com:61621/flashcard_app');
+// mongoose.connect('mongodb://localhost/flash_card_app');
 // Populate datas:
 var Models = require('./populate_data'); // Automatically find and get the module exported from index.js file from models folder.
 Models.populateData();
