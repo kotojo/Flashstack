@@ -9,8 +9,29 @@
       <h1>{{ deck.deck.name }}</h1>
       <p><em>{{ deck.deck.cards.length}} cards</em></p>
       <p>{{ deck.deck.description }}</p>
-      <button type="button" class="btn btn-primary btn-xs" data-toggle="modal">Create New Card</button>
-      <h3> {{ modal.message}}</h3>
+
+      <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/>
+
+      <div ng-show="checked">
+        <div class="row col-sm-2 col-md-4 col-lg-6">
+              <form class="form-group" ng-submit="deck.saveCard()">
+                <div class="form-group">
+                  <h1>Create New Card</h1>
+                  <label>Front</label>
+                  <input type="text" class="form-control" ng-model="deck.cardData.front">
+                </div>
+                <div class="form-group">
+                  <label>Back</label>
+                  <input type="text" class="form-control" ng-model="deck.cardData.back">
+                </div>
+                <div class="form-group">
+                  <button type="submit"
+                          class="btn btn-primary">Create Card</button>
+                </div>
+              </form>
+            </div>
+      </div>
+
     </div>
   </div>
 
@@ -24,45 +45,32 @@
   </div>
 
 
-<!-- CREATE NEW CARD MODAL -->
-
-    <div class="row col-sm-2 col-md-4 col-lg-6">
-      <form class="form-group" ng-submit="deck.saveCard()">
-        <div class="form-group">
-          <h1>Create New Card</h1>
-          <label>Front</label>
-          <input type="text" class="form-control" ng-model="deck.cardData.front">
-        </div>
-        <div class="form-group">
-          <label>Back</label>
-          <input type="text" class="form-control" ng-model="deck.cardData.back">
-        </div>
-        <div class="form-group">
-          <button type="submit"
-                  class="btn btn-primary">Create Card</button>
-        </div>
-      </form>
-    </div>
-<!-- END CREATE NEW CARD MODAL -->
-
-
-
-
-
-
-
   <!-- LIST OF ALL CARDS IN DECK -->
-  <div class="cardwrap col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" ng-repeat="card in deck.Cards">
-    <ul>
-      <li>{{ card.front | uppercase}}</li>
-      <li>{{ card.back | uppercase}}</li>
-    </ul>
-    <div>
-    <a href="#"
-         ng-click="deck.deleteCard(card._id)"
-         class="glyphicon glyphicon-trash"></a>
+    <div class="cardwrap col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" ng-repeat="card in deck.Cards">
+      <div class="cardTop">
+        <a href="#" class="glyphicon glyphicon-share-alt" ng-click="show = !show"></a>
+      </div>
+
+      <div class="cardFront" ng-show="show">
+        {{ card.front | uppercase}}
+      </div>
+      <div class="cardBack" ng-hide="show">
+        {{ card.back | uppercase}}
+      </div>
+      <div class="cardBottom">
+        <div class="cardBottomLeft">
+        <a href="#"
+           ng-click="deck.deleteCard(card._id)"
+           class="glyphicon glyphicon-trash"></a>
+        </div>
+        <div class="cardBottomRight">
+        <a href="#"
+           class="glyphicon glyphicon-thumbs-down"></a>
+           <a href="#"
+           class="glyphicon glyphicon-thumbs-up"></a>
+        </div>
+      </div>
     </div>
-  </div>
 
 
 

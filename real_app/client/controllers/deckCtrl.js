@@ -1,5 +1,5 @@
   //start module and inject the service
-angular.module('deckCtrl', ['deckService', 'cardService'])
+angular.module('deckCtrl', ['deckService', 'cardService', 'ngAnimate'])
 
 //deck controller for main page and injecting factory
 .controller('deckController', function(Deck) {
@@ -130,6 +130,7 @@ angular.module('deckCtrl', ['deckService', 'cardService'])
       });
   };
 
+
 })
 .controller('deckCreateController', function(Deck) {
 
@@ -190,6 +191,22 @@ angular.module('deckCtrl', ['deckService', 'cardService'])
   };
 
 });
+
+// .controller('ModalInstanceCtrl', function (vm, $modalInstance, items) {
+
+//   vm.items = items;
+//   vm.selected = {
+//     item: vm.items[0]
+//   };
+
+//   vm.ok = function () {
+//     $modalInstance.close(vm.selected.item);
+//   };
+
+//   vm.cancel = function () {
+//     $modalInstance.dismiss('cancel');
+//   };
+// });
 
 
 

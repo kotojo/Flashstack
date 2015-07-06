@@ -198,16 +198,30 @@ body {
 }
 
 .cardwrap ul {
-	list-style: none;
 	font-size: 2em;
 	text-align: center;
-	overflow: hidden;
 }
 
-.cardwrap ul li a {
+.cardTop {
 	text-align: right;
 }
 
+.cardFront {
+	text-align: center;
+}
+
+.cardBack {
+	text-align: center;
+}
+.cardBottom {
+	display: inline;
+}
+.cardBottomLeft {
+	float: left;
+}
+.cardBottomRight {
+	float: right;
+}
 
 
 
