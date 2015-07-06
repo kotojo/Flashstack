@@ -74,6 +74,6 @@ app.get('*', function(req, res) {
 
 var server = app.listen(6969, function () {
   var host = server.address().address;
-  var port = server.address().port;
+  var port = process.env.PORT || 9000;
   console.log('Club life happening at http://%s:%s', host, port);
 }); // Starts the server
