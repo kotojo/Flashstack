@@ -16,44 +16,11 @@
 	<!-- TABS -->
 
 	<div class="runner">
-		<!-- <div class="decktabs">
-		    <ul class="nav nav-tabs">
-		        <li class="active"><a data-toggle="tab" href="#mydeck">My Decks</a></li>
-		        <li><a data-toggle="tab" href="#otherdeck">Other Decks</a></li>
-		    </ul>
-		</div> -->
-		<tabset class="decktabs" justified="true">
-		    <tab heading="My Decks">My Decks Content</tab>
-		    <tab heading="Create Deck">Short Labeled Justified content</tab>
-		</tabset>
-	</div>
-
-	<div class="tab-content" ng-show="deck.decks">
-    	<div id="mydeck" class="tab-pane fade in active">
-	     <!-- DECK REPEATS -->
-			<div class="userdecks" ng-repeat="thing in deck.decks">
-				<div class="deckphoto img-thumbnail">
-					<img ng-src="{{ thing.pic }}">
-				</div>
-	        <div class="userdeckinfo">
-		        <p class="deckname"><h3>{{ thing.name | uppercase}}</h3></p>
-		        <p class="deckcount"><em>{{ thing.cards.length}} cards</em></p>
-		        <p class="deckdescrip">{{ thing.description }}</p>
-	        </div>
-	      <!-- <a class="glyphicon glyphicon-eye-open" href="/decks/{{ thing._id }}"></a>
-	      <a href="/decks/edit/{{ "></a>
-	      <a class="glyphicon glyphicon-trash"href="#" ng-click="deck.deleteDeck(thing._id)"></a>
-	    <hr> -->
-			</div>
-    	</div>
-
-	    <div id="otherdeck" class="tab-pane fade">
-	      <h3>Menu 1</h3>
-	      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-	    </div>
-    </div>
-
-	
+		<tabset justified="true">
+		    <tab heading="Justified">Justified content</tab>
+		    <tab heading="SJ">Short Labeled Justified content</tab>
+		    <tab heading="Long Justified">Long Labeled Justified content</tab>
+  		</tabset>
 
 		<div class="deckoptions">
 	    	<a href="/decks/create">Create A New Deck</a>

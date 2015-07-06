@@ -1,38 +1,82 @@
-<h1>{{ deck.deck.name }}</h1>
-<p>{{ deck.deck.description }}</p>
-<ul ng-repeat="card in deck.Cards">
-  <li>{{ card.front }}</li>
-  <li>{{ card.back}}</li>
-  <li><a href="#"
-     ng-click="deck.deleteCard(card._id)"
-     class="btn btn-primary"></a></li>
-</ul>
-<div class="row col-sm-6 col-sm-offset-3">
-  <div class="jumbotron">
-    <h1>Create Card</h1>
-    <form class="form-horizontal" ng-submit="deck.saveCard()">
-      <div class="form-group">
-        <label>Front</label>
-        <input type="text" class="form-control" ng-model="deck.cardData.front">
-      </div>
-      <div class="form-group">
-        <label>Back</label>
-        <input type="text" class="form-control" ng-model="deck.cardData.back">
-      </div>
-      <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-6">
-        <button type="submit"
-                class="btn btn-success btn-large btn-block">Create Card</button>
-      </div>
-      </div>
-    </form>
-    <div class="row" ng-show="deck.cardMessage">
-      <div class="col-sm-6 col-sm-offset-2">
-        <div class="alert alert-info">
-          {{ deck.cardMessage }}
-        </div>
-      </div>
+<div class="pagewrap">  
+
+<!-- CURRENT DECK IDENTIFICATION -->
+  <div class="row deckid"> 
+    <div class="deckphoto col-lg-4">
+      <img ng-src="{{ deck.deck.pic }}">
+    </div>
+    <div class="col-lg-8">  
+      <h1>{{ deck.deck.name }}</h1>
+      <p><em>{{ deck.deck.cards.length}} cards</em></p>
+      <p>{{ deck.deck.description }}</p>
+      <button type="button" class="btn btn-primary btn-xs" data-toggle="modal">Create New Card</button>
+      <h3> {{ modal.message}}</h3>
     </div>
   </div>
-</div>
+
+  <!-- CARD CREATION MESSAGES -->
+  <div class="row messages" ng-show="deck.cardMessage">
+    <hr>   
+      <div class="alert alert-info">
+          {{ deck.cardMessage }}
+      </div>   
+    <hr>
+  </div>
+
+
+<!-- CREATE NEW CARD MODAL -->
+
+    <div class="row col-sm-2 col-md-4 col-lg-6">
+      <form class="form-group" ng-submit="deck.saveCard()">
+        <div class="form-group">
+          <h1>Create New Card</h1>
+          <label>Front</label>
+          <input type="text" class="form-control" ng-model="deck.cardData.front">
+        </div>
+        <div class="form-group">
+          <label>Back</label>
+          <input type="text" class="form-control" ng-model="deck.cardData.back">
+        </div>
+        <div class="form-group">
+          <button type="submit"
+                  class="btn btn-primary">Create Card</button>
+        </div>
+      </form>
+    </div>
+<!-- END CREATE NEW CARD MODAL -->
+
+
+
+
+
+
+
+  <!-- LIST OF ALL CARDS IN DECK -->
+  <div class="cardwrap col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" ng-repeat="card in deck.Cards">
+    <ul>
+      <li>{{ card.front | uppercase}}</li>
+      <li>{{ card.back | uppercase}}</li>
+    </ul>
+    <div>
+    <a href="#"
+         ng-click="deck.deleteCard(card._id)"
+         class="glyphicon glyphicon-trash"></a>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

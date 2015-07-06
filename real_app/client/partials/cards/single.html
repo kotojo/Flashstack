@@ -1,36 +1,41 @@
-<div class="row col-sm-6 col-sm-offset-3">
-  <div class="jumbotron">
-    <h1 ng-if="card.type == 'create'">Create Card</h1>
-    <h1 ng-if="card.type == 'edit'">Edit Card</h1>
-    <form class="form-horizontal" ng-submit="card.saveCard()">
-      <!-- USERNAME INPUT -->
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" ng-model="card.cardData.name">
-      </div>
-      <div class="form-group">
-        <label>Description</label>
-        <input type="text" class="form-control" ng-model="card.cardData.description">
-      </div>
-      <div ng-hide="true" class="form-group">
-        <label>User_id</label>
-        <input type="text" class="form-control" ng-model="card.cardData.userId" ng-init="card.cardData.userId = main.currentUserId">
-      </div>
-      <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-6">
-        <button type="submit"
-                class="btn btn-success btn-large btn-block"
-                ng-if="card.type == 'create'">Create Card</button>
-        <button type="submit"
-                class="btn btn-success btn-large btn-block"
-                ng-if="card.type == 'edit'">Update Card</button>
-      </div>
-      </div>
-    </form>
-    <div class="row" ng-show="card.message">
-      <div class="col-sm-6 col-sm-offset-2">
-        <div class="alert alert-info">
-          {{ card.message }}
+<div class="pagewrap">
+  <div class="row">
+    <div class="jumbotron">
+      <h1 ng-if="card.type == 'create'">Create Card</h1>
+      <h1 ng-if="card.type == 'edit'">Edit Card</h1>
+      <form class="form-horizontal" ng-submit="card.saveCard()">
+        <!-- USERNAME INPUT -->
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" ng-model="card.cardData.name">
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" class="form-control" ng-model="card.cardData.description">
+        </div>
+        <div ng-hide="true" class="form-group">
+          <label>User_id</label>
+          <input type="text" class="form-control" ng-model="card.cardData.userId" ng-init="card.cardData.userId = main.currentUserId">
+        </div>
+        <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-6">
+          <button type="submit"
+                  class="btn btn-primary"
+                  ng-if="card.type == 'create'">New Card
+          </button>
+          <button type="submit"
+                  class="btn btn-primary"
+                  ng-if="card.type == 'edit'">Update Card
+          </button>
+        </div>
+        </div>
+      </form>
+
+      <div class="row" ng-show="card.message">
+        <div class="col-sm-6 col-sm-offset-2">
+          <div class="alert alert-info">
+            {{ card.message }}
+          </div>
         </div>
       </div>
     </div>

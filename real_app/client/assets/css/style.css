@@ -84,8 +84,9 @@ body {
 .pagewrap {
 	background-color: rgba(255, 255, 255, .3);
 	width: 78.8%;
+	height: auto;
 	margin: 0 auto;
-	padding-top: 2%;
+	padding: 2% 1%;
 }
 /*JUMBOTRON===================================*/
 
@@ -163,25 +164,49 @@ body {
 
 /*DECK PAGE==================================*/
 
+.deckpage {
+	height: 100%;
+}
 .deckwrap {
-	background-color: whitesmoke;
+	background-color: rgba(245, 245, 245, .7);
 	padding: 7px;
 	width: 300px;
-	height: 603px;
+	height: 576px;
+	overflow: hidden;
 }
-
 .deckphoto {
 	margin: 0 auto;
-	width: 288px;
-	height: auto;
+	max-width: 100%;
+	max-height: 200px;
+	overflow: hidden;
 }
 .deckoptions {
 	clear: both;
 }
 
+/*CARDS PAGE==================================*/
 
+.messages {
+	display: inline;
+}
 
+.cardwrap {
+	background-color: rgba(245, 245, 245, .7);
+	padding: 7px;
+	margin-top: 20px;
+	font-family: 'Open Sans';
+}
 
+.cardwrap ul {
+	list-style: none;
+	font-size: 2em;
+	text-align: center;
+	overflow: hidden;
+}
+
+.cardwrap ul li a {
+	text-align: right;
+}
 
 
 

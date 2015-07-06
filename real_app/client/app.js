@@ -7,20 +7,14 @@ angular.module('flashcardApp', [
     	'deckCtrl',
     	'deckService',
     	'cardCtrl',
-    	'cardService'
-	])
+    	'cardService'	
+      ])
 
 .config(function($httpProvider) {
 
   //attach auth interceptor into the http requests
   $httpProvider.interceptors.push('AuthInterceptor')
 });
-
-
-
-
-
-
 
 
 

@@ -46,4 +46,5 @@ angular.module('mainCtrl', [])
 			vm.user = {};
 			$location.path('/login');
 		};
+
 	});

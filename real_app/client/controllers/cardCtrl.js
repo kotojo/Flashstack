@@ -33,7 +33,6 @@ angular.module('cardCtrl', ['cardService'])
     //pass in card id as param
     Card.delete(id)
       .success(function(data) {
-
         //get all cards and refresh list
         Card.all()
           .success(function(data) {
