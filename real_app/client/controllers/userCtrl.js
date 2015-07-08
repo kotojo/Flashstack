@@ -47,6 +47,34 @@ angular.module('userCtrl', ['userService', 'deckService'])
       vm.user = data;
   });
 
+//delete decks from user page    
+vm.deleteDeck = function(id) {
+    console.log("Deck deleted");
+    vm.processing = true;
+    //pass in deck id as param
+    Deck.delete(id)
+      .success(function(data) {
+
+        //get all decks and refresh list
+        Deck.all()
+          .success(function(data) {
+
+          //remove processing when we get users
+          vm.processing = false;
+    
+              //bind users to vm when we get them
+          vm.decks = data;
+          }).then(function(){
+            vm.mydecks = [];
+
+          for (i=0; i<vm.decks.length; i++) {
+            if (vm.decks[i].userId === $routeParams.user_id) {
+              vm.mydecks.push(vm.decks[i]);
+            };
+          };
+        });
+      });
+  };
   //need user to be able to access decks
   Deck.all()
     .success(function(data) {

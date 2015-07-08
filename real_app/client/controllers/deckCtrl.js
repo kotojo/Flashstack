@@ -32,6 +32,7 @@ angular.module('deckCtrl', ['deckService', 'cardService', 'ngAnimate'])
     });
 
   vm.deleteDeck = function(id) {
+    console.log("Deck deleted");
     vm.processing = true;
     //pass in deck id as param
     Deck.delete(id)

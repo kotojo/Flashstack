@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 // Main routes
 app.use('/api', require('./api/routes'));
 
-app.use(multer({ dest: '../client/assets/img/uploads',
+app.use(multer({ dest: 'client/assets/img/uploads',
  rename: function (fieldname, filename) {
     return filename+Date.now();
   },
@@ -52,7 +52,7 @@ app.post('/api/photo', function(req, res) {
     console.log(req.files);
 
     Deck.findOneAndUpdate({"pic": Object.keys(req.files)[0]},
-                          { "pic": req.files[Object.keys(req.files)[0]]["path"].substring(10) },
+                          { "pic": req.files[Object.keys(req.files)[0]]["path"].substring(7) },
                           function(err, data){
                             if (err) console.log(err);
                             console.log(JSON.stringify(data));
