@@ -25,7 +25,7 @@
     </div> -->
 
     <!-- Start Placing Decks -->
-  <div class="deckpage row col-lg-4 col-md-6" ng-repeat="thing in deck.decks">
+  <div class="deckpage row col-lg-4 col-md-6" ng-repeat = "thing in deck.decks">
     <div class="deckwrap">
       <div class="deckphoto">
         <img ng-src="{{ thing.pic }}">
@@ -36,9 +36,11 @@
         <p class="deckcount"><em>{{ thing.cards.length}} cards</em></p>
         <p class="deckdescrip">{{ thing.description }}</p>
       </div>
-      <a class="glyphicon glyphicon-eye-open" href="/decks/{{ thing._id }}"></a>
-      <a href="/decks/edit/{{ "></a>
-      <a class="glyphicon glyphicon-trash"href="#" ng-click="deck.deleteDeck(thing._id)"></a>
+      <div>
+      <a class = "glyphicon glyphicon-eye-open" href="/decks/{{ thing._id }}"></a>
+      <a ng-show = "thing.userId = main.currentUserId" class = "glyphicon glyphicon-pencil"   href="/decks/edit/{{ thing._id }} "></a>
+      <a ng-show = "thing.userId=main.currentUserId" class = "glyphicon glyphicon-trash"    href="#" ng-click="deck.deleteDeck(thing._id)"></a>
+      </div>
     </div>
     <hr>
   </div>
@@ -46,23 +48,3 @@
   <hr>
 
 </div>
-
-
-  
-
-
-    <!-- <div ng-repeat="thing in deck.decks">
-      <h1>{{ thing.name }}</h1>
-      <p>{{ thing.description }}</p>
-      <p>{{ thing.cards.count }}</p>
-      
-        <a ng-href="/decks/{{ thing._id }}">View</a>
-        <a ng-href="/decks/edit/{{ thing._id }}">Edit</a>
-        <a href="#" ng-click="deck.deleteDeck(thing._id)">Delete</a>
-      
-    </div>
-
-    <a href="/decks/create" class="btn btn-default">
-      <span class="glyphicon glyphicon-plus"></span>
-    </a>
-    <h3>Make New Deck</h3> -->

@@ -16,10 +16,33 @@
 	<!-- TABS -->
 
 	<div class="runner">
-  		<ul class="nav nav-justified">
-		  <li role="presentation" class="active"><a href="/decks"><h3>Your Decks</h3></a></li>
-		  <li role="presentation"><a href="/decks"><h3>All Decks</h3></a></li>
-		  <li role="presentation"><a href="/decks/create"><h3>Create Deck</h3></a></li>
+  		<ul class="nav nav-tabs nav-justified">
+		  <li role="presentation" class="active"><a href="#"><h3>My Stacks</h3></a></li>
+		  <li role="presentation"><a href="/decks"><h3>All Stacks</h3></a></li>
+		  <li role="presentation"><a href="/decks/create"><h3>Create Stack</h3></a></li>
 		</ul>
+		<div class="deckpage row col-lg-4 col-md-6" ng-repeat = "thing in user.mydecks">
+		    <div class="deckwrap">
+		      <div class="deckphoto">
+		        <img ng-src="{{ thing.pic }}">
+		      </div>
+		        
+		      <div class="deckinfo">
+		        <p class="deckname"><h3>{{ thing.name | uppercase}}</h3></p>
+		        <p class="deckcount"><em>{{ thing.cards.length}} cards</em></p>
+		        <p class="deckdescrip">{{ thing.description }}</p>
+		      </div>
+		      <div>
+		      <a class = "glyphicon glyphicon-eye-open" href="/decks/{{ thing._id }}"></a>
+		      <a class = "glyphicon glyphicon-pencil"   href="/decks/edit/{{ thing._id }} "></a>
+		      <a class = "glyphicon glyphicon-trash"    href="#" ng-click="deck.deleteDeck(thing._id)"></a>
+		      </div>
+		    </div>
+    		
+  		</div>
+
+  	
 
 	</div>
+
+</div>

@@ -2,7 +2,7 @@ angular.module('app.routes', ['ngRoute'])
 	.config(function($routeProvider, $locationProvider){
 		$routeProvider
 		.when('/', {
-			templateUrl: '/partials/home.html'
+			templateUrl: '/partials/login.html'
 		})
 		.when('/login', {
 			templateUrl: 'partials/login.html',
