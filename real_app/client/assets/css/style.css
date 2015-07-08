@@ -19,9 +19,10 @@
   to   { -moz-transform:rotate(360deg);}
 }
 
-body {
+body, html {
 	background-image: url('../img/vichy_@2X.png');
 	background-repeat: repeat;
+	height: 100%;
 }
 
 /*PRE LOGGED IN PAGE===========================*/
@@ -38,7 +39,7 @@ body {
 	width: 75%;
 	margin: 0 auto;
 	border-radius: 0px;
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.8);
 	border: none;
 	font-family: 'Open Sans';
 }
@@ -73,18 +74,23 @@ body {
 
 /*WRAPPER======================================*/
 
+#view {
+
+	height: 100%;
+}
+
 #wrapper {
 	
 	width: 95%;
-	height: 95%;
+	height: 100%;
 	margin: 0 auto;
 	/*padding: 0 10%;*/
 }
 
 .pagewrap {
-	background-color: rgba(255, 255, 255, .3);
-	width: 78.8%;
-	height: auto;
+	background-color: rgba(255, 255, 255, .65);
+	width: 75%;
+	height: 100%;
 	margin: 0 auto;
 	padding: 2% 1%;
 }
@@ -140,7 +146,7 @@ body {
 .username {
 	font-weight: 600;
 	font-size: 3em;
-	color: #ECF0F1;
+	color: #2980B9;
 }
 .userinfo {
 	font-family: 'Open Sans';
@@ -152,7 +158,7 @@ body {
 .runner {
 	background-image: url('../img/geometry2.png');
 	background-repeat: repeat;
-	height: 25em;
+	height: 100%;
 	position: relative;
 }
 .decktabs {
@@ -166,6 +172,7 @@ body {
 
 .deckpage {
 	height: 100%;
+	margin:0 auto;
 }
 .deckwrap {
 	background-color: rgba(245, 245, 245, .7);
@@ -181,7 +188,18 @@ body {
 	overflow: hidden;
 }
 .deckoptions {
-	clear: both;
+	text-decoration: none;
+	text-align: left;
+	font-family: 'Open Sans';
+	font-size: 1.3em;
+	font-style: 600;
+	float: left;
+}
+.deckbar {
+	display: inline;
+}
+.decksearch {
+	float: right;
 }
 
 /*CARDS PAGE==================================*/
@@ -195,19 +213,36 @@ body {
 	padding: 7px;
 	margin-top: 20px;
 	font-family: 'Open Sans';
+	box-shadow: 10px 10px 5px -2px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 10px 10px 5px -2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 10px 10px 5px -2px rgba(0,0,0,0.3);
 }
 
 .cardwrap ul {
-	list-style: none;
 	font-size: 2em;
 	text-align: center;
-	overflow: hidden;
 }
 
-.cardwrap ul li a {
+.cardTop {
 	text-align: right;
 }
 
+.cardFront {
+	text-align: center;
+}
+
+.cardBack {
+	text-align: center;
+}
+.cardBottom {
+	display: inline;
+}
+.cardBottomLeft {
+	float: left;
+}
+.cardBottomRight {
+	float: right;
+}
 
 
 

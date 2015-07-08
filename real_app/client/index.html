@@ -11,7 +11,7 @@
 	<!-- Libraries -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-route.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-animate.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
 	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Controllers -->
@@ -19,7 +19,6 @@
 	<script src="controllers/userCtrl.js"></script>
 	<script src="controllers/deckCtrl.js"></script>
 	<script src="controllers/cardCtrl.js"></script>
-	<script src="controllers/modalCtrl.js"></script>
 	<!-- Services -->
 	<script src="services/authService.js"></script>
 	<script src="services/userService.js"></script>
@@ -28,7 +27,7 @@
 	<!-- main file -->
 	<script src="app.routes.js"></script>
 	<script src="app.js"></script>
-	<title></title>
+	<title>FlashStack: Flash Cards </title>
 </head>
 
 <body ng-app="flashcardApp" ng-controller="mainController as main">
@@ -38,15 +37,11 @@
 		<!-- Navbar -->
 		<header ng-if="main.loggedIn" ng-include="'partials/navBar.html'"></header>
 		<!-- Navbar -->
-
-		<div id = "wrapper">
-
-			<main>
-			  	<!-- <p ng-if = "main.loggedIn">CurrentUserId: {{ main.currentUserId }}</p> -->
-				<div ng-view></div>
-			</main>
-
-		</div>
+	
+	  	<!-- <p ng-if = "main.loggedIn">CurrentUserId: {{ main.currentUserId }}</p> -->
+		<div id="view" ng-view></div>
+			
+	</div>
 
 </body>
 </html>

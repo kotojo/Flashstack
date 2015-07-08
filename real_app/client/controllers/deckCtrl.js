@@ -1,5 +1,8 @@
   //start module and inject the service
-angular.module('deckCtrl', ['deckService', 'cardService'])
+angular.module('deckCtrl', ['deckService', 'cardService', 'ngAnimate'])
+
+
+
 
 //deck controller for main page and injecting factory
 .controller('deckController', function(Deck) {
@@ -43,9 +46,14 @@ angular.module('deckCtrl', ['deckService', 'cardService'])
       });
   };
 })
+
+
+
+
 .controller('deckShowController', function(Deck, Card, $routeParams) {
 
-  var vm = this;
+var vm = this;
+
 
   Deck.get($routeParams.deck_id)
     .success(function(data) {
@@ -130,7 +138,12 @@ angular.module('deckCtrl', ['deckService', 'cardService'])
       });
   };
 
+
 })
+
+
+
+
 .controller('deckCreateController', function(Deck) {
 
   var vm = this;
@@ -158,6 +171,10 @@ angular.module('deckCtrl', ['deckService', 'cardService'])
       });
   };
 })
+
+
+
+
 .controller('deckEditController', function(Deck, $routeParams) {
 
   console.log("I'm here! deckEditController!")
