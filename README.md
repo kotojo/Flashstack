@@ -11,6 +11,7 @@ Flashstack is a MeanStack application with the goal of giving users to create, e
   * [Express.js](http://expressjs.com/)
   * [Node.js](https://nodejs.org/)
   * [Multer](https://github.com/expressjs/multer)
+  
 ---
 
 ## Future ideas
